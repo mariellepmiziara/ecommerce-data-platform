@@ -136,7 +136,6 @@ def transform_customers(df: pd.DataFrame) -> pd.DataFrame:
 
     return df
 
-
 def transform_products(df: pd.DataFrame) -> pd.DataFrame:
     df = df.copy()
 
@@ -149,7 +148,7 @@ def transform_products(df: pd.DataFrame) -> pd.DataFrame:
     print(f"Registros: {len(df):,}")
     print(f"Colunas: {len(df.columns)}")
     print(f"Duplicados: {df.duplicated().sum():,}")
-    print(f"Nulos: {df.isnull().sum().sum(),}")
+    print(f"Nulos: {df.isnull().sum().sum()}")
 
 
     duplicated_count = df.duplicated().sum()
@@ -269,7 +268,445 @@ def transform_products(df: pd.DataFrame) -> pd.DataFrame:
 
     return df
 
+def transform_orders(df: pd.DataFrame) -> pd.DataFrame:
+    df = df.copy()
 
+    print("\n" + "=" * 60)
+    print("🔄 TRANSFORM — ORDERS")
+    print("=" * 60)
+
+    print("\n📊 Estado inicial:")
+
+    print(f"Registros: {len(df):,}")
+    print(f"Colunas: {len(df.columns):,}")
+    print(f"Duplicados: {df.duplicated().sum():,}")
+    print(f"Nulos: {df.isnull().sum().sum():,}")
+
+    duplicated_count = df.duplicated().sum()
+    df = df.drop_duplicates()
+
+    print(
+        f"\n🧹 Duplicidades removidas: "
+        f"{duplicated_count}"
+    )
+
+    invalid_order_ids = (df["order_id"].isna() | (df["order_id"] <= 0)).sum()
+
+    print(
+        f"🆔 order_id inválidos: "
+        f"{invalid_order_ids}"
+    )
+
+    if invalid_order_ids > 0 :
+        raise ValueError("Foram encontrados order_id inválidos.")
+
+    invalid_customer_ids = (df["customer_id"].isna() | (df["customer_id"] <= 0)).sum()
+    print(
+        f"👤 customer_id inválidos: "
+        f"{invalid_customer_ids}"
+    )
+
+    if invalid_customer_ids > 0 :
+        raise ValueError("Foram encontrados customer_id inválidos.")
+
+    invalid_seller_ids = (df["seller_id"].isna() | (df["seller_id"] <= 0)).sum()
+
+    print(
+        f"🏪 seller_id inválidos: "
+        f"{invalid_seller_ids}"
+    )
+
+    if invalid_seller_ids > 0:
+        raise ValueError("Foram encontrados seller_id inválidos.")
+
+    df["order_date"] = pd.to_datetime(df["order_date"], errors="coerce")
+    invalid_dates = (df["order_date"].isna()).sum()
+    print(
+        f"📅 Datas inválidas: "
+        f"{invalid_dates}"
+    )
+
+    if invalid_dates > 0:
+        df = df.loc[df["order_date"].notna()].copy()
+    print(
+        f"🗑️ Pedidos removidos por "
+        f"data inválida: {invalid_dates}"
+    )
+
+    df["status"] = (
+        df["status"]
+        .astype("string")
+        .str.strip()
+        .str.lower()
+    )
+
+    print("\n📌 Status encontrados:")
+
+    print(df["status"].value_counts())
+
+    df["payment_method"] = (
+        df["payment_method"]
+        .astype("string")
+        .str.strip()
+        .str.lower()
+    )
+
+    print("\n💳 Métodos de pagamento:")
+
+    print(df["payment_method"].value_counts())
+
+
+    invalid_amounts = (df["total_amount"].isna() | (df["total_amount"] < 0))
+    invalid_amount_count = (invalid_amounts.sum())
+    print(
+        f"\n💰 Valores inválidos: "
+        f"{invalid_amount_count}"
+    )
+    if invalid_amount_count > 0:
+        df = df.loc[~invalid_amounts].copy()
+    print(
+        f"🗑️ Pedidos removidos por "
+        f"valor inválido: "
+        f"{invalid_amount_count}"
+    )
+
+    df["order_id"] = (df["order_id"].astype("int64"))
+    df["customer_id"] = (df["customer_id"].astype("int64"))
+    df["seller_id"] = (df["seller_id"].astype("int64"))
+    df["total_amount"] = (df["total_amount"].astype("float64"))
+
+    df = (df.sort_values("order_id").reset_index(drop=True))
+
+    print("\n📊 Estado após transformação:")
+
+    print(f"Registros: {len(df):,}")
+    print(f"Colunas: {len(df.columns):,}")
+
+    print(
+        f"Nulos: "
+        f"{df.isnull().sum().sum():,}"
+    )
+
+    print(
+        f"Duplicados: "
+        f"{df.duplicated().sum():,}"
+    )
+
+    print("\nTipos finais:")
+    print(df.dtypes)
+    print("\n✅ Transformação de orders concluída.")
+    return df
+
+def transform_order_items(df: pd.DataFrame) -> pd.DataFrame:
+    df = df.copy()
+    print("\n" + "=" * 60)
+    print("🔄 TRANSFORM — ORDER_ITEMS")
+    print("=" * 60)
+
+    print("\n📊 Estado inicial:")
+    print(f"Registros: {len(df):,}")
+    print(f"Colunas: {len(df.columns):,}")
+    print(f"Duplicados: {df.duplicated().sum():,}")
+    print(f"Nulos: {df.isnull().sum().sum():,}")
+
+    duplicated_count = df.duplicated().sum()
+    df = df.drop_duplicates()
+    print(
+        f"\n🧹 Duplicidades removidas: "
+        f"{duplicated_count}"
+    )
+    print("\n🔎 Verificação de order_item_id:")
+    print(df["order_item_id"].head(10))
+    print("\nTipo:")
+    print(df["order_item_id"].dtype)
+    print("\nNulos:")
+    print(df["order_item_id"].isna().sum())
+    print("\nValores mínimos e máximos:")
+    print(df["order_item_id"].min())
+    print(df["order_item_id"].max())
+
+    invalid_order_item_ids = (df["order_item_id"].isna() | (df["order_item_id"] <= 0))
+    invalid_order_item_count = invalid_order_item_ids.sum()
+    print(
+        f"🆔 order_item_id inválidos: "
+        f"{invalid_order_item_count}"
+    )
+    if invalid_order_item_count > 0:
+        raise ValueError("Foram encontrados order_item_id inválidos.")
+
+
+    invalid_order_ids = (df["order_id"].isna() | (df["order_id"] <= 0)).sum()
+    print(
+        f"🛒 order_id inválidos: "
+        f"{invalid_order_ids}"
+    )
+    if invalid_order_ids > 0:
+        raise ValueError("Foram encontrados order_id inválidos.")
+
+    invalid_product_ids = (df["product_id"].isna() | (df["product_id"] <= 0)).sum()
+    print(
+        f"📦 product_id inválidos: "
+        f"{invalid_product_ids}"
+    )
+    if invalid_product_ids > 0:
+        raise ValueError("Foram encontrados product_id inválidos.")
+
+
+    invalid_quantity = (df["quantity"].isna() | (df["quantity"] <= 0))
+    invalid_quantity_count = (invalid_quantity.sum())
+    print(
+        f"🔢 Quantidades inválidas: "
+        f"{invalid_quantity_count}"
+    )
+
+    invalid_unit_price = (df["unit_price"].isna() | (df["unit_price"] <= 0))
+    invalid_unit_price_count = (invalid_unit_price.sum())
+    print(
+        f"💰 Preços unitários inválidos: "
+        f"{invalid_unit_price_count}"
+    )
+
+
+    invalid_discount = (
+        df["discount"].isna()
+        | (df["discount"] < 0)
+        | (df["discount"] > 1)
+    )
+
+    invalid_discount_count = (invalid_discount.sum())
+    print(
+        f"🏷️ Descontos inválidos: "
+        f"{invalid_discount_count}"
+    )
+
+    invalid_records = (invalid_quantity | invalid_unit_price | invalid_discount)
+    total_invalid_records = (invalid_records.sum())
+    print(
+        f"\n❌ Registros inválidos: "
+        f"{total_invalid_records}"
+    )
+    if total_invalid_records > 0:
+        df = df.loc[~invalid_records].copy()
+        print(
+            f"🗑️ Registros removidos: "
+            f"{total_invalid_records}"
+        )
+
+    df["order_item_id"] = (df["order_item_id"].astype("int64"))
+    df["order_id"] = (df["order_id"].astype("int64"))
+    df["product_id"] = (df["product_id"].astype("int64"))
+    df["quantity"] = (df["quantity"].astype("int64"))
+    df["unit_price"] = (df["unit_price"].astype("int64"))
+    df["discount"] = (df["discount"].astype("float64"))
+
+    df["gross_amount"] = (df["quantity"] * df["unit_price"])
+    df["discount_amount"] = (df["gross_amount"] * df["discount"])
+    df["net_amount"] = (df["gross_amount"] - df["discount_amount"])
+    print("\n💵 Métricas calculadas:")
+    print(
+        f"Valor bruto total: "
+        f"R$ {df['gross_amount'].sum():,.2f}"
+    )
+
+    print(
+        f"Desconto total: "
+        f"R$ {df['discount_amount'].sum():,.2f}"
+    )
+
+    print(
+        f"Valor líquido total: "
+        f"R$ {df['net_amount'].sum():,.2f}"
+    )
+
+    df = (df.sort_values("order_item_id").reset_index(drop=True))
+
+    print("\n📊 Estado após transformação:")
+
+    print(
+        f"Registros: {len(df):,}"
+    )
+
+    print(
+        f"Colunas: {len(df.columns):,}"
+    )
+
+    print(
+        f"Nulos: {df.isnull().sum().sum():,}"
+    )
+
+    print(
+        f"Duplicados: {df.duplicated().sum():,}"
+    )
+
+    print("\nTipos finais:")
+
+    print(df.dtypes)
+
+    print(
+        "\n✅ Transformação de order_items concluída."
+    )
+
+    return df
+
+def transform_payments(df:pd.DataFrame) -> pd.DataFrame:
+    df = df.copy()
+
+    print("\n" + "=" * 60)
+    print("🔄 TRANSFORM — PAYMENTS")
+    print("=" * 60)
+
+    print("\n📊 Estado inicial:")
+    print(f"Registros: {len(df):,}")
+    print(f"Colunas: {len(df.columns):,}")
+    print(f"Duplicados: {df.duplicated().sum():,}")
+    print(f"Nulos: {df.isnull().sum().sum():,}")
+
+    duplicated_count = df.duplicated().sum()
+
+    df = df.drop_duplicates()
+
+    print(
+        f"\n🧹 Duplicidades removidas: "
+        f"{duplicated_count}"
+    )
+
+    invalid_payment_ids = (df["payment_id"].isna() | (df["payment_id"] <= 0))
+    invalid_payment_id_count = (invalid_payment_ids.sum())
+    print(
+        f"🆔 payment_id inválidos: "
+        f"{invalid_payment_id_count}"
+    )
+
+    invalid_orders_ids = (df["order_id"].isna() | (df["order_id"] <= 0))
+    invalid_order_id_count = (invalid_orders_ids.sum())
+    print(
+        f"🛒 order_id inválidos: "
+        f"{invalid_order_id_count}"
+    )
+
+    df["payment_date"] = pd.to_datetime(df["payment_date"], errors="coerce")
+    invalid_dates = (df["payment_date"].isna())
+    invalid_date_count = (invalid_dates.sum())
+    print(
+        f"📅 Datas inválidas: "
+        f"{invalid_date_count}"
+    )
+
+    invalid_amount = (df["amount"].isna() | df["amount"] <= 0)
+    invalid_amount_count = (invalid_amount.sum())
+    print(
+        f"💰 Valores inválidos: "
+        f"{invalid_amount_count}"
+    )
+
+    df["status"] = (df["status"].astype("string").str.strip().str.lower())
+
+    print("\n💳 Status encontrados:")
+    print(df["status"].value_counts())
+
+    invalid_records = (invalid_payment_ids | invalid_orders_ids | invalid_dates | invalid_amount)
+    total_invalid_records = (invalid_records.sum())
+
+    print(
+        f"\n❌ Registros inválidos: "
+        f"{total_invalid_records}"
+    )
+
+    if total_invalid_records > 0:
+        df = df.loc[~invalid_records].copy()
+
+        print(
+            f"🗑️ Registros removidos: "
+            f"{total_invalid_records}"
+        )
+
+
+    df["payment_id"] = (df["payment_id"].astype("int64"))
+    df["order_id"] = (df["order_id"].astype("int64"))
+    df["amount"] = (df["amount"].astype("float64"))
+
+    df = (df.sort_values("payment_id").reset_index(drop=True))
+
+    print("\n📊 Estado após transformação:")
+    print(f"Registros: {len(df):,}")
+    print(f"Colunas: {len(df.columns):,}")
+    print(f"Nulos: {df.isnull().sum().sum():,}")
+    print(f"Duplicados: {df.duplicated().sum():,}")
+    print("\nTipos finais:")
+    print(df.dtypes)
+    print("\n✅ Transformação de payments concluída.")
+
+    return df
+
+def transform_sellers(df:pd.DataFrame) -> pd.DataFrame:
+    df = df.copy()
+
+    print("\n" + "=" * 60)
+    print("🔄 TRANSFORM — SELLERS")
+    print("=" * 60)
+
+    print("\n📊 Estado inicial:")
+    print(f"Registros: {len(df):,}")
+    print(f"Colunas: {len(df.columns)}")
+    print(f"Duplicados: {df.duplicated().sum():,}")
+    print(f"Nulos: {df.isnull().sum().sum():,}")
+
+    duplicated_count = df.duplicated().sum()
+
+    df = df.drop_duplicates()
+
+    print(
+        f"\n🧹 Duplicidades removidas: "
+        f"{duplicated_count}"
+    )
+
+    invalid_seller_ids = (df["seller_id"].isna() | (df["seller_id"] <= 0)).sum()
+    print(
+        f"🏪 seller_id inválidos: "
+        f"{invalid_seller_ids}"
+    )
+
+    if invalid_seller_ids > 0:
+        raise ValueError("Foram encontrados seller_id inválidos.")
+
+    duplicate_seller_ids = df.duplicated(subset=["seller_id"]).sum()
+    df = df.drop_duplicates(subset=["seller_id"],keep="first")
+
+    print(
+        f"🆔 seller_id duplicados removidos: "
+        f"{duplicate_seller_ids}"
+    )
+
+    text_columns = [
+        "seller_name",
+        "city",
+        "state"
+    ]
+
+    for column in text_columns:
+        df[column] = (df[column].astype("string").str.strip())
+
+    print("\n📍 Estados encontrados:")
+    print(df["state"].value_counts())
+
+    df["seller_id"] = df["seller_id"].astype("int64")
+
+    df = (df.sort_values("seller_id").reset_index(drop=True))
+
+    print("\n📊 Estado após transformação:")
+    print(f"Registros: {len(df):,}")
+    print(f"Colunas: {len(df.columns)}")
+    print(f"Nulos: {df.isnull().sum().sum():,}")
+    print(f"Duplicados: {df.duplicated().sum():,}")
+
+    print("\nTipos finais:")
+    print(df.dtypes)
+
+    print(
+        "\n✅ Transformação de sellers concluída."
+    )
+
+    return df
 
 def save_processed_data(
     df: pd.DataFrame,
@@ -315,6 +752,31 @@ if __name__ == "__main__":
         products = pd.read_csv(products_path, encoding="utf-8")
         products_clean = transform_products(products)        
         save_processed_data(products_clean, "products_clean.csv")
+
+
+        orders_path = (RAW_DIR / "orders.csv")
+
+        orders = pd.read_csv(orders_path, encoding="utf-8")
+        orders_clean = transform_orders(orders)        
+        save_processed_data(orders_clean, "orders_clean.csv") 
+
+        order_items_path = (RAW_DIR / "order_items.csv")
+
+        order_items = pd.read_csv(order_items_path,encoding="utf-8")
+        order_items_clean = transform_order_items(order_items)
+        save_processed_data(order_items_clean,"order_items_clean.csv") 
+
+        payments_path = (RAW_DIR / "payments.csv")
+
+        payments = pd.read_csv(payments_path,encoding="utf-8")
+        payments_clean = transform_payments(payments)
+        save_processed_data(payments_clean,"payments_clean.csv")
+
+        sellers_path = (RAW_DIR / "sellers.csv")
+
+        sellers = pd.read_csv(sellers_path,encoding="utf-8")
+        sellers_clean = transform_sellers(sellers)
+        save_processed_data(sellers_clean,"sellers_clean.csv")
 
         print("\n🎉 TRANSFORMAÇÕES CONCLUÍDAS!")
 
