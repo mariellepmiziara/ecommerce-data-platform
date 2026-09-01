@@ -21,7 +21,7 @@ def validate_database():
             ORDER BY name;
         """)
 
-        tables = cursor.fetchone()[0]
+        tables = cursor.fetchall()
         print("\n📋 Tabelas encontradas:")
 
         for table in tables:
@@ -36,6 +36,7 @@ def validate_database():
             "products",
             "sellers",
             "orders",
+            "payments",
             "order_items"
         ]
 
@@ -88,10 +89,18 @@ def validate_database():
             ),
 
             (
-                "order_items.order_item_id",
+                "orders_items.order_item_id",
                 """
                 SELECT COUNT(*) - COUNT(DISTINCT order_item_id)
                 FROM order_items
+                """
+            ),
+
+            (
+                "payments.payment_id",
+                """
+                SELECT COUNT(*) - COUNT(DISTINCT payment_id)
+                FROM payments
                 """
             )
         ]
@@ -183,6 +192,23 @@ def validate_database():
                 f"{invalid_products} registros inválidos"
             )
 
+        cursor.execute("""
+            SELECT COUNT(*)
+            FROM payments p
+            LEFT JOIN orders o
+                ON p.order_id = o.order_id
+            WHERE o.order_id IS NULL;
+        """
+        )
+
+        invalid_payment_orders = cursor.fetchone()[0]
+        if invalid_payment_orders == 0: 
+            print("✅ payments → orders")
+        else:
+            print(
+                f"❌ payments → orders: "
+                f"{invalid_payment_orders} registros inválidos"
+            )
 
         print("\n🕳️ VALORES NULOS")
         print("-" * 60)
@@ -234,3 +260,7 @@ def validate_database():
 
 if __name__ == "__main__":
     validate_database()
+
+
+    # 3 registros de customers sem e-mail — mantidos intencionalmente
+    # o email foi normalizado, porém não descartou clientes sem email cadastrado

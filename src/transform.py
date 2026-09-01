@@ -15,22 +15,10 @@ def transform_customers(df: pd.DataFrame) -> pd.DataFrame:
 
 
     print("\n📊 Estado inicial:")
-
-    print(
-        f"Registros: {len(df):,}"
-    )
-
-    print(
-        f"Colunas: {len(df.columns)}"
-    )
-
-    print(
-        f"Duplicados: {df.duplicated().sum():,}"
-    )
-
-    print(
-        f"Nulos: {df.isnull().sum().sum():,}"
-    )
+    print(f"Registros: {len(df):,}")
+    print(f"Colunas: {len(df.columns)}")
+    print(f"Duplicados: {df.duplicated().sum():,}")
+    print(f"Nulos: {df.isnull().sum().sum():,}")
 
 
     duplicated_before = df.duplicated().sum()
@@ -496,7 +484,7 @@ def transform_order_items(df: pd.DataFrame) -> pd.DataFrame:
     df["order_id"] = (df["order_id"].astype("int64"))
     df["product_id"] = (df["product_id"].astype("int64"))
     df["quantity"] = (df["quantity"].astype("int64"))
-    df["unit_price"] = (df["unit_price"].astype("int64"))
+    df["unit_price"] = (df["unit_price"].astype("float64"))
     df["discount"] = (df["discount"].astype("float64"))
 
     df["gross_amount"] = (df["quantity"] * df["unit_price"])
@@ -708,6 +696,44 @@ def transform_sellers(df:pd.DataFrame) -> pd.DataFrame:
 
     return df
 
+def enforce_referential_integrity(
+        orders: pd.DataFrame,
+        products: pd.DataFrame,
+        order_items: pd.DataFrame,
+        payments: pd.DataFrame,
+) -> tuple[pd.DataFrame, pd.DataFrame]:
+    print("\n" + "=" * 60)
+    print("🔗 INTEGRIDADE REFERENCIAL — pós-transformação")
+    print("=" * 60)
+
+    valid_order_ids = set(orders["order_id"])
+    valid_product_ids = set(products["product_id"])
+
+    before = len(order_items)
+    order_items = order_items[
+        order_items["order_id"].isin(valid_order_ids)
+        & order_items["product_id"].isin(valid_product_ids)
+    ].reset_index(drop=True)
+    removed = before - len(order_items)
+    print(
+        f"🗑️ order_items removidos "
+        f"(order_id/product_id órfãos): {removed}"
+    )
+
+    before = len(payments)
+    payments = payments[
+        payments["order_id"].isin(valid_order_ids)
+    ].reset_index(drop=True)
+    removed = before - len(payments)
+    print(
+        f"🗑️ payments removidos "
+        f"(order_id órfão): {removed}"
+    )
+ 
+    print("\n✅ Integridade referencial garantida.")
+ 
+    return order_items, payments
+
 def save_processed_data(
     df: pd.DataFrame,
     filename: str,
@@ -734,60 +760,51 @@ def save_processed_data(
     )
 
 
-
-
 if __name__ == "__main__":
 
     try:
-
+        # --- Tabelas "pai" primeiro ---
         customers_path = (RAW_DIR / "customers.csv")
-
         customers = pd.read_csv(customers_path, encoding="utf-8")
         customers_clean = transform_customers(customers)
         save_processed_data(customers_clean, "customers_clean.csv")
 
-
         products_path = (RAW_DIR / "products.csv")
-
         products = pd.read_csv(products_path, encoding="utf-8")
-        products_clean = transform_products(products)        
+        products_clean = transform_products(products)
         save_processed_data(products_clean, "products_clean.csv")
 
+        sellers_path = (RAW_DIR / "sellers.csv")
+        sellers = pd.read_csv(sellers_path, encoding="utf-8")
+        sellers_clean = transform_sellers(sellers)
+        save_processed_data(sellers_clean, "sellers_clean.csv")
 
         orders_path = (RAW_DIR / "orders.csv")
-
         orders = pd.read_csv(orders_path, encoding="utf-8")
-        orders_clean = transform_orders(orders)        
-        save_processed_data(orders_clean, "orders_clean.csv") 
+        orders_clean = transform_orders(orders)
+        save_processed_data(orders_clean, "orders_clean.csv")
 
+        # --- Tabelas "filhas" ---
         order_items_path = (RAW_DIR / "order_items.csv")
-
-        order_items = pd.read_csv(order_items_path,encoding="utf-8")
+        order_items = pd.read_csv(order_items_path, encoding="utf-8")
         order_items_clean = transform_order_items(order_items)
-        save_processed_data(order_items_clean,"order_items_clean.csv") 
 
         payments_path = (RAW_DIR / "payments.csv")
-
-        payments = pd.read_csv(payments_path,encoding="utf-8")
+        payments = pd.read_csv(payments_path, encoding="utf-8")
         payments_clean = transform_payments(payments)
-        save_processed_data(payments_clean,"payments_clean.csv")
 
-        sellers_path = (RAW_DIR / "sellers.csv")
+        # --- Garante que nenhuma linha órfã sobreviva ---
+        order_items_clean, payments_clean = enforce_referential_integrity(
+            orders_clean, products_clean, order_items_clean, payments_clean
+        )
 
-        sellers = pd.read_csv(sellers_path,encoding="utf-8")
-        sellers_clean = transform_sellers(sellers)
-        save_processed_data(sellers_clean,"sellers_clean.csv")
+        save_processed_data(order_items_clean, "order_items_clean.csv")
+        save_processed_data(payments_clean, "payments_clean.csv")
 
         print("\n🎉 TRANSFORMAÇÕES CONCLUÍDAS!")
 
     except FileNotFoundError as error:
-        print(
-            f"❌ Arquivo não encontrado: "
-            f"{error}"
-        )
+        print(f"❌ Arquivo não encontrado: {error}")
 
     except Exception as error:
-        print(
-            f"❌ Erro durante a transformação: "
-            f"{error}"
-        )
+        print(f"❌ Erro durante a transformação: {error}")
