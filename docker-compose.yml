@@ -1,0 +1,135 @@
+x-airflow-common:
+  &airflow-common
+  image: apache/airflow:3.0.6
+
+  environment:
+    AIRFLOW__CORE__EXECUTOR: CeleryExecutor
+    AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres/airflow
+    AIRFLOW__CELERY__RESULT_BACKEND: db+postgresql://airflow:airflow@postgres/airflow
+    AIRFLOW__CELERY__BROKER_URL: redis://:@redis:6379/0
+
+    AIRFLOW__CORE__FERNET_KEY: ""
+    AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: "true"
+    AIRFLOW__CORE__LOAD_EXAMPLES: "false"
+
+    AIRFLOW__API__AUTH_BACKENDS: airflow.api.auth.backend.basic_auth
+    AIRFLOW__CORE__SIMPLE_AUTH_MANAGER_USERS: "admin:admin"
+
+    PYTHONPATH: /opt/airflow
+
+    AIRFLOW__CORE__EXECUTION_API_SERVER_URL: http://airflow-apiserver:8080/execution/
+
+  volumes:
+    - ./dags:/opt/airflow/dags
+    - ./src:/opt/airflow/src
+    - ./data:/opt/airflow/data
+    - ./tests:/opt/airflow/tests
+    - ./schema.sql:/opt/airflow/schema.sql
+
+  depends_on:
+    postgres:
+      condition: service_healthy
+
+    redis:
+      condition: service_healthy
+
+
+services:
+
+  postgres:
+    image: postgres:16
+
+    environment:
+      POSTGRES_USER: airflow
+      POSTGRES_PASSWORD: airflow
+      POSTGRES_DB: airflow
+
+    volumes:
+      - postgres-db-volume:/var/lib/postgresql/data
+
+    healthcheck:
+      test:
+        - CMD
+        - pg_isready
+        - -U
+        - airflow
+
+    restart: always
+
+
+  redis:
+    image: redis:7.2
+
+    healthcheck:
+      test:
+        - CMD
+        - redis-cli
+        - ping
+
+    restart: always
+
+
+  airflow-init:
+    <<: *airflow-common
+
+    entrypoint: /bin/bash
+
+    command:
+      - -c
+      - |
+        airflow db migrate
+
+    restart: "no"
+
+
+  airflow-apiserver:
+    <<: *airflow-common
+
+    command:
+      - api-server
+
+    ports:
+      - "8081:8080"
+
+    restart: always
+
+
+  airflow-scheduler:
+    <<: *airflow-common
+
+    command:
+      - scheduler
+
+    restart: always
+
+
+  airflow-dag-processor:
+    <<: *airflow-common
+
+    command:
+      - dag-processor
+
+    restart: always
+
+
+  airflow-worker:
+    <<: *airflow-common
+
+    command:
+      - celery
+      - worker
+
+    restart: always
+
+
+  airflow-triggerer:
+    <<: *airflow-common
+
+    command:
+      - triggerer
+
+    restart: always
+
+
+volumes:
+  postgres-db-volume:
