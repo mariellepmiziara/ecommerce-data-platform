@@ -1,6 +1,6 @@
 name: CI
 
-"on":
+on:
   push:
     branches: ["main", "master"]
   pull_request:
@@ -30,7 +30,7 @@ jobs:
       - name: Run test suite
         run: pytest tests/ -v --tb=short
 
-            - name: Upload database artifact on failure
+      - name: Upload database artifact on failure
         if: failure()
         uses: actions/upload-artifact@v4
         with:
