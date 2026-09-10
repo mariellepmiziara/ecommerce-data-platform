@@ -1,0 +1,1003 @@
+customer_id,name,email,city,state,created_at
+1,Cliente 0001,cliente0001@email.com,Florianópolis,MG,2024-01-01 00:00:00
+2,Cliente 0002,cliente0002@email.com,Curitiba,GO,2024-01-01 12:00:00
+3,Cliente 0003,cliente0003@email.com,Goiânia,PR,2024-01-02 00:00:00
+4,Cliente 0004,cliente0004@email.com,Porto Alegre,PR,2024-01-02 12:00:00
+5,Cliente 0005,cliente0005@email.com,Florianópolis,RS,2024-01-03 00:00:00
+6,Cliente 0006,cliente0006@email.com,Belo Horizonte,GO,2024-01-03 12:00:00
+7,Cliente 0007,cliente0007@email.com,Rio de Janeiro,RS,2024-01-04 00:00:00
+8,Cliente 0008,cliente0008@email.com,Florianópolis,GO,2024-01-04 12:00:00
+9,Cliente 0009,cliente0009@email.com,Goiânia,ES,2024-01-05 00:00:00
+10,Cliente 0010,cliente0010@email.com,Porto Alegre,MG,2024-01-05 12:00:00
+11,Cliente 0011,cliente0011@email.com,Curitiba,ES,2024-01-06 00:00:00
+12,Cliente 0012,cliente0012@email.com,Goiânia,PE,2024-01-06 12:00:00
+13,Cliente 0013,cliente0013@email.com,Goiânia,BA,2024-01-07 00:00:00
+14,Cliente 0014,cliente0014@email.com,Rio de Janeiro,RJ,2024-01-07 12:00:00
+15,Cliente 0015,cliente0015@email.com,Salvador,GO,2024-01-08 00:00:00
+16,Cliente 0016,cliente0016@email.com,Porto Alegre,PE,2024-01-08 12:00:00
+17,Cliente 0017,cliente0017@email.com,São Paulo,BA,2024-01-09 00:00:00
+18,Cliente 0018,,Goiânia,SC,2024-01-09 12:00:00
+19,Cliente 0019,cliente0019@email.com,Salvador,MG,2024-01-10 00:00:00
+20,Cliente 0020,cliente0020@email.com,São Paulo,RS,2024-01-10 12:00:00
+21,Cliente 0021,cliente0021@email.com,Porto Alegre,RS,2024-01-11 00:00:00
+22,Cliente 0022,cliente0022@email.com,Uberaba,ES,2024-01-11 12:00:00
+23,Cliente 0023,cliente0023@email.com,Belo Horizonte,PR,2024-01-12 00:00:00
+24,Cliente 0024,cliente0024@email.com,Salvador,BA,2024-01-12 12:00:00
+25,Cliente 0025,cliente0025@email.com,Recife,SC,2024-01-13 00:00:00
+26,Cliente 0026,cliente0026@email.com,Uberaba,PE,2024-01-13 12:00:00
+27,Cliente 0027,cliente0027@email.com,Belo Horizonte,MG,2024-01-14 00:00:00
+28,Cliente 0028,cliente0028@email.com,Rio de Janeiro,BA,2024-01-14 12:00:00
+29,Cliente 0029,cliente0029@email.com,Florianópolis,SC,2024-01-15 00:00:00
+30,Cliente 0030,cliente0030@email.com,Curitiba,RJ,2024-01-15 12:00:00
+31,Cliente 0031,cliente0031@email.com,Recife,GO,2024-01-16 00:00:00
+32,Cliente 0032,cliente0032@email.com,Rio de Janeiro,RS,2024-01-16 12:00:00
+33,Cliente 0033,cliente0033@email.com,Porto Alegre,PE,2024-01-17 00:00:00
+34,Cliente 0034,cliente0034@email.com,Rio de Janeiro,RS,2024-01-17 12:00:00
+35,Cliente 0035,cliente0035@email.com,Florianópolis,PE,2024-01-18 00:00:00
+36,Cliente 0036,cliente0036@email.com,Porto Alegre,ES,2024-01-18 12:00:00
+37,Cliente 0037,cliente0037@email.com,Recife,PR,2024-01-19 00:00:00
+38,Cliente 0038,cliente0038@email.com,Florianópolis,PE,2024-01-19 12:00:00
+39,Cliente 0039,cliente0039@email.com,São Paulo,RS,2024-01-20 00:00:00
+40,Cliente 0040,cliente0040@email.com,Curitiba,ES,2024-01-20 12:00:00
+41,Cliente 0041,cliente0041@email.com,Recife,PE,2024-01-21 00:00:00
+42,Cliente 0042,cliente0042@email.com,São Paulo,RJ,2024-01-21 12:00:00
+43,Cliente 0043,cliente0043@email.com,Belo Horizonte,PR,2024-01-22 00:00:00
+44,Cliente 0044,cliente0044@email.com,Recife,PE,2024-01-22 12:00:00
+45,Cliente 0045,cliente0045@email.com,Belo Horizonte,ES,2024-01-23 00:00:00
+46,Cliente 0046,cliente0046@email.com,Porto Alegre,BA,2024-01-23 12:00:00
+47,Cliente 0047,cliente0047@email.com,São Paulo,SP,2024-01-24 00:00:00
+48,Cliente 0048,cliente0048@email.com,Curitiba,SC,2024-01-24 12:00:00
+49,Cliente 0049,cliente0049@email.com,Florianópolis,SP,2024-01-25 00:00:00
+50,Cliente 0050,cliente0050@email.com,Goiânia,SP,2024-01-25 12:00:00
+51,Cliente 0051,cliente0051@email.com,Rio de Janeiro,MG,2024-01-26 00:00:00
+52,Cliente 0052,cliente0052@email.com,Uberaba,RJ,2024-01-26 12:00:00
+53,Cliente 0053,cliente0053@email.com,Curitiba,BA,2024-01-27 00:00:00
+54,Cliente 0054,cliente0054@email.com,São Paulo,GO,2024-01-27 12:00:00
+55,Cliente 0055,cliente0055@email.com,Goiânia,PE,2024-01-28 00:00:00
+56,Cliente 0056,cliente0056@email.com,Curitiba,SC,2024-01-28 12:00:00
+57,Cliente 0057,cliente0057@email.com,São Paulo,PR,2024-01-29 00:00:00
+58,Cliente 0058,cliente0058@email.com,Salvador,BA,2024-01-29 12:00:00
+59,Cliente 0059,cliente0059@email.com,Salvador,RS,2024-01-30 00:00:00
+60,Cliente 0060,cliente0060@email.com,Belo Horizonte,GO,2024-01-30 12:00:00
+61,Cliente 0061,cliente0061@email.com,Curitiba,MG,2024-01-31 00:00:00
+62,Cliente 0062,cliente0062@email.com,Salvador,MG,2024-01-31 12:00:00
+63,Cliente 0063,cliente0063@email.com,São Paulo,BA,2024-02-01 00:00:00
+64,Cliente 0064,cliente0064@email.com,Belo Horizonte,ES,2024-02-01 12:00:00
+65,Cliente 0065,cliente0065@email.com,São Paulo,SP,2024-02-02 00:00:00
+66,Cliente 0066,cliente0066@email.com,Belo Horizonte,RS,2024-02-02 12:00:00
+67,Cliente 0067,cliente0067@email.com,Curitiba,MG,2024-02-03 00:00:00
+68,Cliente 0068,cliente0068@email.com,Goiânia,SC,2024-02-03 12:00:00
+69,Cliente 0069,cliente0069@email.com,Florianópolis,MG,2024-02-04 00:00:00
+70,Cliente 0070,cliente0070@email.com,Recife,PR,2024-02-04 12:00:00
+71,Cliente 0071,cliente0071@email.com,Goiânia,PE,2024-02-05 00:00:00
+72,Cliente 0072,cliente0072@email.com,Porto Alegre,MG,2024-02-05 12:00:00
+73,Cliente 0073,cliente0073@email.com,São Paulo,PR,2024-02-06 00:00:00
+74,Cliente 0074,cliente0074@email.com,Porto Alegre,BA,2024-02-06 12:00:00
+75,Cliente 0075,cliente0075@email.com,Goiânia,BA,2024-02-07 00:00:00
+76,Cliente 0076,cliente0076@email.com,Belo Horizonte,GO,2024-02-07 12:00:00
+77,Cliente 0077,cliente0077@email.com,Recife,MG,2024-02-08 00:00:00
+78,Cliente 0078,cliente0078@email.com,Recife,SC,2024-02-08 12:00:00
+79,Cliente 0079,cliente0079@email.com,Uberaba,MG,2024-02-09 00:00:00
+80,Cliente 0080,cliente0080@email.com,Recife,SC,2024-02-09 12:00:00
+81,Cliente 0081,cliente0081@email.com,Florianópolis,RJ,2024-02-10 00:00:00
+82,Cliente 0082,cliente0082@email.com,Recife,GO,2024-02-10 12:00:00
+83,Cliente 0083,cliente0083@email.com,Goiânia,RJ,2024-02-11 00:00:00
+84,Cliente 0084,cliente0084@email.com,Uberaba,MG,2024-02-11 12:00:00
+85,Cliente 0085,cliente0085@email.com,Goiânia,GO,2024-02-12 00:00:00
+86,Cliente 0086,cliente0086@email.com,Goiânia,RJ,2024-02-12 12:00:00
+87,Cliente 0087,cliente0087@email.com,Rio de Janeiro,SP,2024-02-13 00:00:00
+88,Cliente 0088,cliente0088@email.com,Uberaba,MG,2024-02-13 12:00:00
+89,Cliente 0089,cliente0089@email.com,Goiânia,RJ,2024-02-14 00:00:00
+90,Cliente 0090,cliente0090@email.com,Rio de Janeiro,SP,2024-02-14 12:00:00
+91,Cliente 0091,cliente0091@email.com,Rio de Janeiro,SP,2024-02-15 00:00:00
+92,Cliente 0092,cliente0092@email.com,Uberaba,BA,2024-02-15 12:00:00
+93,Cliente 0093,cliente0093@email.com,Porto Alegre,MG,2024-02-16 00:00:00
+94,Cliente 0094,cliente0094@email.com,Belo Horizonte,SP,2024-02-16 12:00:00
+95,Cliente 0095,cliente0095@email.com,Florianópolis,BA,2024-02-17 00:00:00
+96,Cliente 0096,cliente0096@email.com,Belo Horizonte,RJ,2024-02-17 12:00:00
+97,Cliente 0097,cliente0097@email.com,Recife,PR,2024-02-18 00:00:00
+98,Cliente 0098,cliente0098@email.com,Florianópolis,MG,2024-02-18 12:00:00
+99,Cliente 0099,cliente0099@email.com,Recife,GO,2024-02-19 00:00:00
+100,Cliente 0100,cliente0100@email.com,Goiânia,SC,2024-02-19 12:00:00
+101,Cliente 0101,cliente0101@email.com,São Paulo,SC,2024-02-20 00:00:00
+102,Cliente 0102,cliente0102@email.com,Uberaba,RJ,2024-02-20 12:00:00
+103,Cliente 0103,cliente0103@email.com,Florianópolis,ES,2024-02-21 00:00:00
+104,Cliente 0104,cliente0104@email.com,Florianópolis,ES,2024-02-21 12:00:00
+105,Cliente 0105,cliente0105@email.com,Goiânia,RJ,2024-02-22 00:00:00
+106,Cliente 0106,cliente0106@email.com,Porto Alegre,SP,2024-02-22 12:00:00
+107,Cliente 0107,cliente0107@email.com,Rio de Janeiro,MG,2024-02-23 00:00:00
+108,Cliente 0108,cliente0108@email.com,Goiânia,SC,2024-02-23 12:00:00
+109,Cliente 0109,cliente0109@email.com,Salvador,SC,2024-02-24 00:00:00
+110,Cliente 0110,cliente0110@email.com,Rio de Janeiro,SP,2024-02-24 12:00:00
+111,Cliente 0111,cliente0111@email.com,Uberaba,SC,2024-02-25 00:00:00
+112,Cliente 0112,cliente0112@email.com,Rio de Janeiro,GO,2024-02-25 12:00:00
+113,Cliente 0113,cliente0113@email.com,Porto Alegre,MG,2024-02-26 00:00:00
+114,Cliente 0114,cliente0114@email.com,Rio de Janeiro,PE,2024-02-26 12:00:00
+115,Cliente 0115,cliente0115@email.com,Uberaba,SC,2024-02-27 00:00:00
+116,Cliente 0116,cliente0116@email.com,Porto Alegre,RJ,2024-02-27 12:00:00
+117,Cliente 0117,cliente0117@email.com,Belo Horizonte,GO,2024-02-28 00:00:00
+118,Cliente 0118,cliente0118@email.com,Florianópolis,SC,2024-02-28 12:00:00
+119,Cliente 0119,cliente0119@email.com,Florianópolis,GO,2024-02-29 00:00:00
+120,Cliente 0120,cliente0120@email.com,Recife,BA,2024-02-29 12:00:00
+121,Cliente 0121,cliente0121@email.com,Belo Horizonte,PE,2024-03-01 00:00:00
+122,Cliente 0122,cliente0122@email.com,Belo Horizonte,RS,2024-03-01 12:00:00
+123,Cliente 0123,cliente0123@email.com,Rio de Janeiro,RJ,2024-03-02 00:00:00
+124,Cliente 0124,cliente0124@email.com,Florianópolis,RJ,2024-03-02 12:00:00
+125,Cliente 0125,cliente0125@email.com,Uberaba,MG,2024-03-03 00:00:00
+126,Cliente 0126,cliente0126@email.com,Curitiba,GO,2024-03-03 12:00:00
+127,Cliente 0127,cliente0127@email.com,Curitiba,SP,2024-03-04 00:00:00
+128,Cliente 0128,cliente0128@email.com,Porto Alegre,RJ,2024-03-04 12:00:00
+129,Cliente 0129,cliente0129@email.com,Florianópolis,GO,2024-03-05 00:00:00
+130,Cliente 0130,cliente0130@email.com,Florianópolis,GO,2024-03-05 12:00:00
+131,Cliente 0131,cliente0131@email.com,Curitiba,PR,2024-03-06 00:00:00
+132,Cliente 0132,cliente0132@email.com,Florianópolis,PR,2024-03-06 12:00:00
+133,Cliente 0133,cliente0133@email.com,Rio de Janeiro,RS,2024-03-07 00:00:00
+134,Cliente 0134,cliente0134@email.com,Salvador,BA,2024-03-07 12:00:00
+135,Cliente 0135,cliente0135@email.com,São Paulo,RS,2024-03-08 00:00:00
+136,Cliente 0136,cliente0136@email.com,Belo Horizonte,SC,2024-03-08 12:00:00
+137,Cliente 0137,cliente0137@email.com,Recife,SP,2024-03-09 00:00:00
+138,Cliente 0138,cliente0138@email.com,Porto Alegre,SC,2024-03-09 12:00:00
+139,Cliente 0139,cliente0139@email.com,Salvador,ES,2024-03-10 00:00:00
+140,Cliente 0140,cliente0140@email.com,Curitiba,SC,2024-03-10 12:00:00
+141,Cliente 0141,cliente0141@email.com,Belo Horizonte,MG,2024-03-11 00:00:00
+142,Cliente 0142,cliente0142@email.com,Florianópolis,SC,2024-03-11 12:00:00
+143,Cliente 0143,cliente0143@email.com,Recife,RS,2024-03-12 00:00:00
+144,Cliente 0144,cliente0144@email.com,Florianópolis,RJ,2024-03-12 12:00:00
+145,Cliente 0145,cliente0145@email.com,Uberaba,RJ,2024-03-13 00:00:00
+146,Cliente 0146,cliente0146@email.com,Uberaba,PR,2024-03-13 12:00:00
+147,Cliente 0147,cliente0147@email.com,Recife,SP,2024-03-14 00:00:00
+148,Cliente 0148,cliente0148@email.com,Recife,SP,2024-03-14 12:00:00
+149,Cliente 0149,cliente0149@email.com,Curitiba,MG,2024-03-15 00:00:00
+150,Cliente 0150,cliente0150@email.com,Recife,RS,2024-03-15 12:00:00
+151,Cliente 0151,cliente0151@email.com,Rio de Janeiro,PR,2024-03-16 00:00:00
+152,Cliente 0152,cliente0152@email.com,Florianópolis,ES,2024-03-16 12:00:00
+153,Cliente 0153,cliente0153@email.com,Salvador,SP,2024-03-17 00:00:00
+154,Cliente 0154,cliente0154@email.com,Goiânia,RJ,2024-03-17 12:00:00
+155,Cliente 0155,cliente0155@email.com,Recife,SC,2024-03-18 00:00:00
+156,Cliente 0156,cliente0156@email.com,Porto Alegre,SC,2024-03-18 12:00:00
+157,Cliente 0157,cliente0157@email.com,Uberaba,PR,2024-03-19 00:00:00
+158,Cliente 0158,cliente0158@email.com,Rio de Janeiro,RS,2024-03-19 12:00:00
+159,Cliente 0159,cliente0159@email.com,Belo Horizonte,RS,2024-03-20 00:00:00
+160,Cliente 0160,cliente0160@email.com,Goiânia,BA,2024-03-20 12:00:00
+161,Cliente 0161,cliente0161@email.com,Salvador,PE,2024-03-21 00:00:00
+162,Cliente 0162,cliente0162@email.com,Goiânia,SP,2024-03-21 12:00:00
+163,Cliente 0163,cliente0163@email.com,Recife,RS,2024-03-22 00:00:00
+164,Cliente 0164,cliente0164@email.com,Curitiba,RJ,2024-03-22 12:00:00
+165,Cliente 0165,cliente0165@email.com,Uberaba,PR,2024-03-23 00:00:00
+166,Cliente 0166,cliente0166@email.com,Uberaba,ES,2024-03-23 12:00:00
+167,Cliente 0167,cliente0167@email.com,Belo Horizonte,BA,2024-03-24 00:00:00
+168,Cliente 0168,cliente0168@email.com,Curitiba,GO,2024-03-24 12:00:00
+169,Cliente 0169,cliente0169@email.com,Florianópolis,MG,2024-03-25 00:00:00
+170,Cliente 0170,cliente0170@email.com,São Paulo,ES,2024-03-25 12:00:00
+171,Cliente 0171,cliente0171@email.com,Rio de Janeiro,GO,2024-03-26 00:00:00
+172,Cliente 0172,cliente0172@email.com,Uberaba,SC,2024-03-26 12:00:00
+173,Cliente 0173,cliente0173@email.com,Porto Alegre,MG,2024-03-27 00:00:00
+174,Cliente 0174,cliente0174@email.com,Uberaba,SP,2024-03-27 12:00:00
+175,Cliente 0175,cliente0175@email.com,Goiânia,RJ,2024-03-28 00:00:00
+176,Cliente 0176,cliente0176@email.com,Uberaba,MG,2024-03-28 12:00:00
+177,Cliente 0177,cliente0177@email.com,Uberaba,PE,2024-03-29 00:00:00
+178,Cliente 0178,cliente0178@email.com,São Paulo,GO,2024-03-29 12:00:00
+179,Cliente 0179,cliente0179@email.com,São Paulo,SP,2024-03-30 00:00:00
+180,Cliente 0180,cliente0180@email.com,Salvador,PE,2024-03-30 12:00:00
+181,Cliente 0181,cliente0181@email.com,Florianópolis,SC,2024-03-31 00:00:00
+182,Cliente 0182,cliente0182@email.com,Porto Alegre,PE,2024-03-31 12:00:00
+183,Cliente 0183,cliente0183@email.com,Uberaba,BA,2024-04-01 00:00:00
+184,Cliente 0184,cliente0184@email.com,Uberaba,BA,2024-04-01 12:00:00
+185,Cliente 0185,cliente0185@email.com,Rio de Janeiro,PR,2024-04-02 00:00:00
+186,Cliente 0186,cliente0186@email.com,São Paulo,ES,2024-04-02 12:00:00
+187,Cliente 0187,cliente0187@email.com,Porto Alegre,ES,2024-04-03 00:00:00
+188,Cliente 0188,cliente0188@email.com,Belo Horizonte,SP,2024-04-03 12:00:00
+189,Cliente 0189,cliente0189@email.com,Salvador,SC,2024-04-04 00:00:00
+190,Cliente 0190,cliente0190@email.com,Florianópolis,RS,2024-04-04 12:00:00
+191,Cliente 0191,cliente0191@email.com,Curitiba,BA,2024-04-05 00:00:00
+192,Cliente 0192,cliente0192@email.com,Florianópolis,SP,2024-04-05 12:00:00
+193,Cliente 0193,cliente0193@email.com,Goiânia,RS,2024-04-06 00:00:00
+194,Cliente 0194,cliente0194@email.com,Uberaba,ES,2024-04-06 12:00:00
+195,Cliente 0195,cliente0195@email.com,Salvador,PR,2024-04-07 00:00:00
+196,Cliente 0196,cliente0196@email.com,Goiânia,PE,2024-04-07 12:00:00
+197,Cliente 0197,cliente0197@email.com,Porto Alegre,BA,2024-04-08 00:00:00
+198,Cliente 0198,cliente0198@email.com,Curitiba,SP,2024-04-08 12:00:00
+199,Cliente 0199,cliente0199@email.com,São Paulo,MG,2024-04-09 00:00:00
+200,Cliente 0200,cliente0200@email.com,Salvador,RS,2024-04-09 12:00:00
+201,Cliente 0201,cliente0201@email.com,Salvador,PE,2024-04-10 00:00:00
+202,Cliente 0202,cliente0202@email.com,Uberaba,BA,2024-04-10 12:00:00
+203,Cliente 0203,cliente0203@email.com,Recife,ES,2024-04-11 00:00:00
+204,Cliente 0204,cliente0204@email.com,Salvador,SC,2024-04-11 12:00:00
+205,Cliente 0205,cliente0205@email.com,Rio de Janeiro,RS,2024-04-12 00:00:00
+206,Cliente 0206,cliente0206@email.com,Curitiba,ES,2024-04-12 12:00:00
+207,Cliente 0207,cliente0207@email.com,Curitiba,BA,2024-04-13 00:00:00
+208,Cliente 0208,cliente0208@email.com,Rio de Janeiro,RS,2024-04-13 12:00:00
+209,Cliente 0209,cliente0209@email.com,Belo Horizonte,PE,2024-04-14 00:00:00
+210,Cliente 0210,cliente0210@email.com,Rio de Janeiro,BA,2024-04-14 12:00:00
+211,Cliente 0211,cliente0211@email.com,Rio de Janeiro,GO,2024-04-15 00:00:00
+212,Cliente 0212,cliente0212@email.com,Curitiba,SP,2024-04-15 12:00:00
+213,Cliente 0213,cliente0213@email.com,Florianópolis,PE,2024-04-16 00:00:00
+214,Cliente 0214,cliente0214@email.com,Curitiba,RS,2024-04-16 12:00:00
+215,Cliente 0215,cliente0215@email.com,Recife,SC,2024-04-17 00:00:00
+216,Cliente 0216,cliente0216@email.com,Uberaba,ES,2024-04-17 12:00:00
+217,Cliente 0217,cliente0217@email.com,Goiânia,MG,2024-04-18 00:00:00
+218,Cliente 0218,cliente0218@email.com,Florianópolis,ES,2024-04-18 12:00:00
+219,Cliente 0219,cliente0219@email.com,São Paulo,RS,2024-04-19 00:00:00
+220,Cliente 0220,cliente0220@email.com,Goiânia,ES,2024-04-19 12:00:00
+221,Cliente 0221,cliente0221@email.com,Uberaba,SP,2024-04-20 00:00:00
+222,Cliente 0222,cliente0222@email.com,Recife,BA,2024-04-20 12:00:00
+223,Cliente 0223,cliente0223@email.com,Recife,MG,2024-04-21 00:00:00
+224,Cliente 0224,cliente0224@email.com,São Paulo,RJ,2024-04-21 12:00:00
+225,Cliente 0225,cliente0225@email.com,Florianópolis,RS,2024-04-22 00:00:00
+226,Cliente 0226,cliente0226@email.com,Belo Horizonte,PR,2024-04-22 12:00:00
+227,Cliente 0227,cliente0227@email.com,Rio de Janeiro,RJ,2024-04-23 00:00:00
+228,Cliente 0228,cliente0228@email.com,Florianópolis,ES,2024-04-23 12:00:00
+229,Cliente 0229,cliente0229@email.com,Belo Horizonte,RS,2024-04-24 00:00:00
+230,Cliente 0230,cliente0230@email.com,Recife,GO,2024-04-24 12:00:00
+231,Cliente 0231,cliente0231@email.com,Curitiba,PR,2024-04-25 00:00:00
+232,Cliente 0232,cliente0232@email.com,Uberaba,MG,2024-04-25 12:00:00
+233,Cliente 0233,cliente0233@email.com,São Paulo,SC,2024-04-26 00:00:00
+234,Cliente 0234,cliente0234@email.com,Uberaba,GO,2024-04-26 12:00:00
+235,Cliente 0235,,Porto Alegre,RJ,2024-04-27 00:00:00
+236,Cliente 0236,cliente0236@email.com,Porto Alegre,BA,2024-04-27 12:00:00
+237,Cliente 0237,cliente0237@email.com,Florianópolis,SP,2024-04-28 00:00:00
+238,Cliente 0238,cliente0238@email.com,Recife,SC,2024-04-28 12:00:00
+239,Cliente 0239,cliente0239@email.com,Recife,GO,2024-04-29 00:00:00
+240,Cliente 0240,cliente0240@email.com,Rio de Janeiro,BA,2024-04-29 12:00:00
+241,Cliente 0241,cliente0241@email.com,Rio de Janeiro,BA,2024-04-30 00:00:00
+242,Cliente 0242,cliente0242@email.com,Rio de Janeiro,RS,2024-04-30 12:00:00
+243,Cliente 0243,cliente0243@email.com,Curitiba,GO,2024-05-01 00:00:00
+244,Cliente 0244,cliente0244@email.com,Goiânia,MG,2024-05-01 12:00:00
+245,Cliente 0245,cliente0245@email.com,Salvador,ES,2024-05-02 00:00:00
+246,Cliente 0246,cliente0246@email.com,Goiânia,PR,2024-05-02 12:00:00
+247,Cliente 0247,cliente0247@email.com,Uberaba,PR,2024-05-03 00:00:00
+248,Cliente 0248,cliente0248@email.com,Goiânia,RJ,2024-05-03 12:00:00
+249,Cliente 0249,cliente0249@email.com,Curitiba,RJ,2024-05-04 00:00:00
+250,Cliente 0250,cliente0250@email.com,Uberaba,PR,2024-05-04 12:00:00
+251,Cliente 0251,cliente0251@email.com,Goiânia,MG,2024-05-05 00:00:00
+252,Cliente 0252,cliente0252@email.com,Curitiba,SP,2024-05-05 12:00:00
+253,Cliente 0253,cliente0253@email.com,Salvador,PE,2024-05-06 00:00:00
+254,Cliente 0254,cliente0254@email.com,Goiânia,ES,2024-05-06 12:00:00
+255,Cliente 0255,cliente0255@email.com,Curitiba,SP,2024-05-07 00:00:00
+256,Cliente 0256,cliente0256@email.com,Rio de Janeiro,RS,2024-05-07 12:00:00
+257,Cliente 0257,cliente0257@email.com,Recife,PE,2024-05-08 00:00:00
+258,Cliente 0258,cliente0258@email.com,Rio de Janeiro,PE,2024-05-08 12:00:00
+259,Cliente 0259,cliente0259@email.com,Recife,GO,2024-05-09 00:00:00
+260,Cliente 0260,cliente0260@email.com,São Paulo,MG,2024-05-09 12:00:00
+261,Cliente 0261,cliente0261@email.com,São Paulo,MG,2024-05-10 00:00:00
+262,Cliente 0262,cliente0262@email.com,São Paulo,PE,2024-05-10 12:00:00
+263,Cliente 0263,cliente0263@email.com,Salvador,GO,2024-05-11 00:00:00
+264,Cliente 0264,cliente0264@email.com,Rio de Janeiro,ES,2024-05-11 12:00:00
+265,Cliente 0265,cliente0265@email.com,Recife,PE,2024-05-12 00:00:00
+266,Cliente 0266,cliente0266@email.com,Curitiba,SC,2024-05-12 12:00:00
+267,Cliente 0267,cliente0267@email.com,Uberaba,RJ,2024-05-13 00:00:00
+268,Cliente 0268,cliente0268@email.com,Curitiba,RJ,2024-05-13 12:00:00
+269,Cliente 0269,cliente0269@email.com,Uberaba,SP,2024-05-14 00:00:00
+270,Cliente 0270,cliente0270@email.com,Porto Alegre,RS,2024-05-14 12:00:00
+271,Cliente 0271,cliente0271@email.com,Curitiba,RJ,2024-05-15 00:00:00
+272,Cliente 0272,cliente0272@email.com,Goiânia,BA,2024-05-15 12:00:00
+273,Cliente 0273,cliente0273@email.com,Goiânia,SP,2024-05-16 00:00:00
+274,Cliente 0274,cliente0274@email.com,Florianópolis,RJ,2024-05-16 12:00:00
+275,Cliente 0275,cliente0275@email.com,Rio de Janeiro,RS,2024-05-17 00:00:00
+276,Cliente 0276,cliente0276@email.com,Uberaba,MG,2024-05-17 12:00:00
+277,Cliente 0277,cliente0277@email.com,Uberaba,MG,2024-05-18 00:00:00
+278,Cliente 0278,cliente0278@email.com,Rio de Janeiro,ES,2024-05-18 12:00:00
+279,Cliente 0279,cliente0279@email.com,Salvador,PE,2024-05-19 00:00:00
+280,Cliente 0280,cliente0280@email.com,Florianópolis,SC,2024-05-19 12:00:00
+281,Cliente 0281,cliente0281@email.com,Salvador,MG,2024-05-20 00:00:00
+282,Cliente 0282,cliente0282@email.com,Salvador,GO,2024-05-20 12:00:00
+283,Cliente 0283,cliente0283@email.com,Salvador,RJ,2024-05-21 00:00:00
+284,Cliente 0284,cliente0284@email.com,Rio de Janeiro,GO,2024-05-21 12:00:00
+285,Cliente 0285,cliente0285@email.com,Salvador,RS,2024-05-22 00:00:00
+286,Cliente 0286,cliente0286@email.com,Goiânia,MG,2024-05-22 12:00:00
+287,Cliente 0287,cliente0287@email.com,São Paulo,SC,2024-05-23 00:00:00
+288,Cliente 0288,cliente0288@email.com,Porto Alegre,RS,2024-05-23 12:00:00
+289,Cliente 0289,cliente0289@email.com,Uberaba,BA,2024-05-24 00:00:00
+290,Cliente 0290,cliente0290@email.com,Uberaba,BA,2024-05-24 12:00:00
+291,Cliente 0291,cliente0291@email.com,Porto Alegre,GO,2024-05-25 00:00:00
+292,Cliente 0292,cliente0292@email.com,Rio de Janeiro,PE,2024-05-25 12:00:00
+293,Cliente 0293,cliente0293@email.com,Curitiba,SP,2024-05-26 00:00:00
+294,Cliente 0294,cliente0294@email.com,Rio de Janeiro,PE,2024-05-26 12:00:00
+295,Cliente 0295,cliente0295@email.com,Uberaba,ES,2024-05-27 00:00:00
+296,Cliente 0296,cliente0296@email.com,Uberaba,PE,2024-05-27 12:00:00
+297,Cliente 0297,cliente0297@email.com,Porto Alegre,ES,2024-05-28 00:00:00
+298,Cliente 0298,cliente0298@email.com,Salvador,ES,2024-05-28 12:00:00
+299,Cliente 0299,cliente0299@email.com,Rio de Janeiro,SC,2024-05-29 00:00:00
+300,Cliente 0300,cliente0300@email.com,Recife,MG,2024-05-29 12:00:00
+301,Cliente 0301,cliente0301@email.com,Porto Alegre,SC,2024-05-30 00:00:00
+302,Cliente 0302,cliente0302@email.com,Goiânia,ES,2024-05-30 12:00:00
+303,Cliente 0303,cliente0303@email.com,Uberaba,RS,2024-05-31 00:00:00
+304,Cliente 0304,cliente0304@email.com,Porto Alegre,BA,2024-05-31 12:00:00
+305,Cliente 0305,cliente0305@email.com,Rio de Janeiro,ES,2024-06-01 00:00:00
+306,Cliente 0306,cliente0306@email.com,Uberaba,SC,2024-06-01 12:00:00
+307,Cliente 0307,cliente0307@email.com,Curitiba,RS,2024-06-02 00:00:00
+308,Cliente 0308,cliente0308@email.com,Porto Alegre,SC,2024-06-02 12:00:00
+309,Cliente 0309,cliente0309@email.com,Florianópolis,PE,2024-06-03 00:00:00
+310,Cliente 0310,cliente0310@email.com,Uberaba,RJ,2024-06-03 12:00:00
+311,Cliente 0311,cliente0311@email.com,Rio de Janeiro,GO,2024-06-04 00:00:00
+312,Cliente 0312,cliente0312@email.com,São Paulo,SP,2024-06-04 12:00:00
+313,Cliente 0313,cliente0313@email.com,Recife,SC,2024-06-05 00:00:00
+314,Cliente 0314,cliente0314@email.com,Belo Horizonte,SP,2024-06-05 12:00:00
+315,Cliente 0315,cliente0315@email.com,Salvador,PR,2024-06-06 00:00:00
+316,Cliente 0316,cliente0316@email.com,Belo Horizonte,SC,2024-06-06 12:00:00
+317,Cliente 0317,cliente0317@email.com,Rio de Janeiro,RJ,2024-06-07 00:00:00
+318,Cliente 0318,cliente0318@email.com,Goiânia,SP,2024-06-07 12:00:00
+319,Cliente 0319,cliente0319@email.com,Goiânia,ES,2024-06-08 00:00:00
+320,Cliente 0320,cliente0320@email.com,São Paulo,SC,2024-06-08 12:00:00
+321,Cliente 0321,cliente0321@email.com,Salvador,MG,2024-06-09 00:00:00
+322,Cliente 0322,cliente0322@email.com,Florianópolis,GO,2024-06-09 12:00:00
+323,Cliente 0323,cliente0323@email.com,São Paulo,RJ,2024-06-10 00:00:00
+324,Cliente 0324,cliente0324@email.com,Belo Horizonte,SP,2024-06-10 12:00:00
+325,Cliente 0325,cliente0325@email.com,São Paulo,RJ,2024-06-11 00:00:00
+326,Cliente 0326,cliente0326@email.com,Belo Horizonte,RS,2024-06-11 12:00:00
+327,Cliente 0327,cliente0327@email.com,Uberaba,GO,2024-06-12 00:00:00
+328,Cliente 0328,cliente0328@email.com,Goiânia,ES,2024-06-12 12:00:00
+329,Cliente 0329,cliente0329@email.com,Uberaba,SC,2024-06-13 00:00:00
+330,Cliente 0330,cliente0330@email.com,Recife,SC,2024-06-13 12:00:00
+331,Cliente 0331,cliente0331@email.com,Salvador,SC,2024-06-14 00:00:00
+332,Cliente 0332,cliente0332@email.com,Florianópolis,GO,2024-06-14 12:00:00
+333,Cliente 0333,cliente0333@email.com,Belo Horizonte,MG,2024-06-15 00:00:00
+334,Cliente 0334,cliente0334@email.com,Florianópolis,PR,2024-06-15 12:00:00
+335,Cliente 0335,cliente0335@email.com,Belo Horizonte,BA,2024-06-16 00:00:00
+336,Cliente 0336,cliente0336@email.com,Rio de Janeiro,PE,2024-06-16 12:00:00
+337,Cliente 0337,cliente0337@email.com,São Paulo,SP,2024-06-17 00:00:00
+338,Cliente 0338,cliente0338@email.com,Recife,MG,2024-06-17 12:00:00
+339,Cliente 0339,cliente0339@email.com,Goiânia,ES,2024-06-18 00:00:00
+340,Cliente 0340,cliente0340@email.com,Belo Horizonte,SP,2024-06-18 12:00:00
+341,Cliente 0341,cliente0341@email.com,Florianópolis,SC,2024-06-19 00:00:00
+342,Cliente 0342,cliente0342@email.com,Recife,RJ,2024-06-19 12:00:00
+343,Cliente 0343,cliente0343@email.com,Curitiba,ES,2024-06-20 00:00:00
+344,Cliente 0344,cliente0344@email.com,Curitiba,SP,2024-06-20 12:00:00
+345,Cliente 0345,cliente0345@email.com,Uberaba,SC,2024-06-21 00:00:00
+346,Cliente 0346,cliente0346@email.com,Goiânia,SP,2024-06-21 12:00:00
+347,Cliente 0347,cliente0347@email.com,Rio de Janeiro,RJ,2024-06-22 00:00:00
+348,Cliente 0348,cliente0348@email.com,Florianópolis,SC,2024-06-22 12:00:00
+349,Cliente 0349,cliente0349@email.com,São Paulo,PR,2024-06-23 00:00:00
+350,Cliente 0350,cliente0350@email.com,São Paulo,MG,2024-06-23 12:00:00
+351,Cliente 0351,cliente0351@email.com,Florianópolis,RS,2024-06-24 00:00:00
+352,Cliente 0352,cliente0352@email.com,Salvador,PE,2024-06-24 12:00:00
+353,Cliente 0353,cliente0353@email.com,Rio de Janeiro,GO,2024-06-25 00:00:00
+354,Cliente 0354,cliente0354@email.com,Recife,PE,2024-06-25 12:00:00
+355,Cliente 0355,cliente0355@email.com,Belo Horizonte,ES,2024-06-26 00:00:00
+356,Cliente 0356,cliente0356@email.com,Salvador,PE,2024-06-26 12:00:00
+357,Cliente 0357,cliente0357@email.com,Belo Horizonte,SC,2024-06-27 00:00:00
+358,Cliente 0358,cliente0358@email.com,Belo Horizonte,PR,2024-06-27 12:00:00
+359,Cliente 0359,cliente0359@email.com,Salvador,RS,2024-06-28 00:00:00
+360,Cliente 0360,cliente0360@email.com,Uberaba,MG,2024-06-28 12:00:00
+361,Cliente 0361,cliente0361@email.com,Curitiba,MG,2024-06-29 00:00:00
+362,Cliente 0362,cliente0362@email.com,Belo Horizonte,RJ,2024-06-29 12:00:00
+363,Cliente 0363,cliente0363@email.com,Salvador,GO,2024-06-30 00:00:00
+364,Cliente 0364,cliente0364@email.com,Salvador,SP,2024-06-30 12:00:00
+365,Cliente 0365,cliente0365@email.com,Porto Alegre,PR,2024-07-01 00:00:00
+366,Cliente 0366,cliente0366@email.com,Uberaba,SP,2024-07-01 12:00:00
+367,Cliente 0367,cliente0367@email.com,Goiânia,RS,2024-07-02 00:00:00
+368,Cliente 0368,cliente0368@email.com,Porto Alegre,PE,2024-07-02 12:00:00
+369,Cliente 0369,cliente0369@email.com,Porto Alegre,MG,2024-07-03 00:00:00
+370,Cliente 0370,cliente0370@email.com,Florianópolis,RS,2024-07-03 12:00:00
+371,Cliente 0371,cliente0371@email.com,Curitiba,PE,2024-07-04 00:00:00
+372,Cliente 0372,cliente0372@email.com,Salvador,MG,2024-07-04 12:00:00
+373,Cliente 0373,cliente0373@email.com,Curitiba,PE,2024-07-05 00:00:00
+374,Cliente 0374,cliente0374@email.com,Rio de Janeiro,GO,2024-07-05 12:00:00
+375,Cliente 0375,cliente0375@email.com,Florianópolis,PR,2024-07-06 00:00:00
+376,Cliente 0376,cliente0376@email.com,Goiânia,ES,2024-07-06 12:00:00
+377,Cliente 0377,cliente0377@email.com,Curitiba,RS,2024-07-07 00:00:00
+378,Cliente 0378,cliente0378@email.com,São Paulo,RS,2024-07-07 12:00:00
+379,Cliente 0379,cliente0379@email.com,Belo Horizonte,BA,2024-07-08 00:00:00
+380,Cliente 0380,cliente0380@email.com,Rio de Janeiro,SC,2024-07-08 12:00:00
+381,Cliente 0381,cliente0381@email.com,Uberaba,GO,2024-07-09 00:00:00
+382,Cliente 0382,cliente0382@email.com,Goiânia,GO,2024-07-09 12:00:00
+383,Cliente 0383,cliente0383@email.com,Rio de Janeiro,SP,2024-07-10 00:00:00
+384,Cliente 0384,cliente0384@email.com,Belo Horizonte,PE,2024-07-10 12:00:00
+385,Cliente 0385,cliente0385@email.com,Florianópolis,SC,2024-07-11 00:00:00
+386,Cliente 0386,cliente0386@email.com,Belo Horizonte,PR,2024-07-11 12:00:00
+387,Cliente 0387,cliente0387@email.com,Porto Alegre,PR,2024-07-12 00:00:00
+388,Cliente 0388,cliente0388@email.com,Belo Horizonte,GO,2024-07-12 12:00:00
+389,Cliente 0389,cliente0389@email.com,Porto Alegre,PR,2024-07-13 00:00:00
+390,Cliente 0390,cliente0390@email.com,Florianópolis,BA,2024-07-13 12:00:00
+391,Cliente 0391,cliente0391@email.com,Recife,RS,2024-07-14 00:00:00
+392,Cliente 0392,cliente0392@email.com,Porto Alegre,RJ,2024-07-14 12:00:00
+393,Cliente 0393,cliente0393@email.com,Uberaba,ES,2024-07-15 00:00:00
+394,Cliente 0394,cliente0394@email.com,Belo Horizonte,SP,2024-07-15 12:00:00
+395,Cliente 0395,cliente0395@email.com,Belo Horizonte,PE,2024-07-16 00:00:00
+396,Cliente 0396,cliente0396@email.com,Uberaba,ES,2024-07-16 12:00:00
+397,Cliente 0397,cliente0397@email.com,São Paulo,PE,2024-07-17 00:00:00
+398,Cliente 0398,cliente0398@email.com,Salvador,MG,2024-07-17 12:00:00
+399,Cliente 0399,cliente0399@email.com,Recife,ES,2024-07-18 00:00:00
+400,Cliente 0400,cliente0400@email.com,Goiânia,RJ,2024-07-18 12:00:00
+401,Cliente 0401,cliente0401@email.com,Porto Alegre,GO,2024-07-19 00:00:00
+402,Cliente 0402,cliente0402@email.com,Uberaba,BA,2024-07-19 12:00:00
+403,Cliente 0403,cliente0403@email.com,Florianópolis,RS,2024-07-20 00:00:00
+404,Cliente 0404,cliente0404@email.com,Porto Alegre,RS,2024-07-20 12:00:00
+405,Cliente 0405,cliente0405@email.com,Salvador,BA,2024-07-21 00:00:00
+406,Cliente 0406,cliente0406@email.com,Florianópolis,SC,2024-07-21 12:00:00
+407,Cliente 0407,cliente0407@email.com,Rio de Janeiro,MG,2024-07-22 00:00:00
+408,Cliente 0408,cliente0408@email.com,Belo Horizonte,PE,2024-07-22 12:00:00
+409,Cliente 0409,cliente0409@email.com,Rio de Janeiro,RJ,2024-07-23 00:00:00
+410,Cliente 0410,cliente0410@email.com,Porto Alegre,PR,2024-07-23 12:00:00
+411,Cliente 0411,cliente0411@email.com,Salvador,ES,2024-07-24 00:00:00
+412,Cliente 0412,cliente0412@email.com,Recife,MG,2024-07-24 12:00:00
+413,Cliente 0413,cliente0413@email.com,Porto Alegre,ES,2024-07-25 00:00:00
+414,Cliente 0414,cliente0414@email.com,Uberaba,RJ,2024-07-25 12:00:00
+415,Cliente 0415,cliente0415@email.com,Curitiba,SP,2024-07-26 00:00:00
+416,Cliente 0416,cliente0416@email.com,Porto Alegre,SP,2024-07-26 12:00:00
+417,Cliente 0417,cliente0417@email.com,Belo Horizonte,MG,2024-07-27 00:00:00
+418,Cliente 0418,cliente0418@email.com,Belo Horizonte,GO,2024-07-27 12:00:00
+419,Cliente 0419,cliente0419@email.com,Porto Alegre,RJ,2024-07-28 00:00:00
+420,Cliente 0420,cliente0420@email.com,Florianópolis,RJ,2024-07-28 12:00:00
+421,Cliente 0421,cliente0421@email.com,Curitiba,BA,2024-07-29 00:00:00
+422,Cliente 0422,cliente0422@email.com,Uberaba,GO,2024-07-29 12:00:00
+423,Cliente 0423,cliente0423@email.com,Porto Alegre,PE,2024-07-30 00:00:00
+424,Cliente 0424,cliente0424@email.com,Florianópolis,PE,2024-07-30 12:00:00
+425,Cliente 0425,cliente0425@email.com,Belo Horizonte,PR,2024-07-31 00:00:00
+426,Cliente 0426,cliente0426@email.com,Belo Horizonte,RS,2024-07-31 12:00:00
+427,Cliente 0427,cliente0427@email.com,Salvador,SP,2024-08-01 00:00:00
+428,Cliente 0428,cliente0428@email.com,Porto Alegre,PE,2024-08-01 12:00:00
+429,Cliente 0429,cliente0429@email.com,Curitiba,GO,2024-08-02 00:00:00
+430,Cliente 0430,cliente0430@email.com,São Paulo,RJ,2024-08-02 12:00:00
+431,Cliente 0431,cliente0431@email.com,Curitiba,PE,2024-08-03 00:00:00
+432,Cliente 0432,cliente0432@email.com,Belo Horizonte,RJ,2024-08-03 12:00:00
+433,Cliente 0433,cliente0433@email.com,Belo Horizonte,PE,2024-08-04 00:00:00
+434,Cliente 0434,cliente0434@email.com,Rio de Janeiro,SP,2024-08-04 12:00:00
+435,Cliente 0435,cliente0435@email.com,Belo Horizonte,ES,2024-08-05 00:00:00
+436,Cliente 0436,cliente0436@email.com,Uberaba,PE,2024-08-05 12:00:00
+437,Cliente 0437,cliente0437@email.com,Goiânia,GO,2024-08-06 00:00:00
+438,Cliente 0438,cliente0438@email.com,Porto Alegre,PE,2024-08-06 12:00:00
+439,Cliente 0439,cliente0439@email.com,Curitiba,RS,2024-08-07 00:00:00
+440,Cliente 0440,cliente0440@email.com,Goiânia,SP,2024-08-07 12:00:00
+441,Cliente 0441,cliente0441@email.com,Florianópolis,GO,2024-08-08 00:00:00
+442,Cliente 0442,cliente0442@email.com,São Paulo,BA,2024-08-08 12:00:00
+443,Cliente 0443,cliente0443@email.com,Uberaba,GO,2024-08-09 00:00:00
+444,Cliente 0444,cliente0444@email.com,Curitiba,RS,2024-08-09 12:00:00
+445,Cliente 0445,cliente0445@email.com,Goiânia,ES,2024-08-10 00:00:00
+446,Cliente 0446,cliente0446@email.com,São Paulo,SP,2024-08-10 12:00:00
+447,Cliente 0447,cliente0447@email.com,Rio de Janeiro,BA,2024-08-11 00:00:00
+448,Cliente 0448,cliente0448@email.com,Uberaba,RS,2024-08-11 12:00:00
+449,Cliente 0449,cliente0449@email.com,Uberaba,RS,2024-08-12 00:00:00
+450,Cliente 0450,cliente0450@email.com,Rio de Janeiro,MG,2024-08-12 12:00:00
+451,Cliente 0451,cliente0451@email.com,Porto Alegre,SP,2024-08-13 00:00:00
+452,Cliente 0452,cliente0452@email.com,Rio de Janeiro,GO,2024-08-13 12:00:00
+453,Cliente 0453,cliente0453@email.com,Uberaba,RJ,2024-08-14 00:00:00
+454,Cliente 0454,cliente0454@email.com,Uberaba,ES,2024-08-14 12:00:00
+455,Cliente 0455,cliente0455@email.com,Goiânia,RJ,2024-08-15 00:00:00
+456,Cliente 0456,cliente0456@email.com,Belo Horizonte,GO,2024-08-15 12:00:00
+457,Cliente 0457,cliente0457@email.com,São Paulo,GO,2024-08-16 00:00:00
+458,Cliente 0458,cliente0458@email.com,Rio de Janeiro,SP,2024-08-16 12:00:00
+459,Cliente 0459,cliente0459@email.com,São Paulo,GO,2024-08-17 00:00:00
+460,Cliente 0460,cliente0460@email.com,Rio de Janeiro,MG,2024-08-17 12:00:00
+461,Cliente 0461,cliente0461@email.com,Florianópolis,BA,2024-08-18 00:00:00
+462,Cliente 0462,cliente0462@email.com,Uberaba,GO,2024-08-18 12:00:00
+463,Cliente 0463,cliente0463@email.com,Belo Horizonte,RJ,2024-08-19 00:00:00
+464,Cliente 0464,cliente0464@email.com,Goiânia,GO,2024-08-19 12:00:00
+465,Cliente 0465,cliente0465@email.com,Belo Horizonte,MG,2024-08-20 00:00:00
+466,Cliente 0466,cliente0466@email.com,Belo Horizonte,PE,2024-08-20 12:00:00
+467,Cliente 0467,cliente0467@email.com,Belo Horizonte,PE,2024-08-21 00:00:00
+468,Cliente 0468,cliente0468@email.com,São Paulo,RS,2024-08-21 12:00:00
+469,Cliente 0469,cliente0469@email.com,Rio de Janeiro,ES,2024-08-22 00:00:00
+470,Cliente 0470,cliente0470@email.com,Recife,PR,2024-08-22 12:00:00
+471,Cliente 0471,cliente0471@email.com,Florianópolis,BA,2024-08-23 00:00:00
+472,Cliente 0472,cliente0472@email.com,Curitiba,SC,2024-08-23 12:00:00
+473,Cliente 0473,cliente0473@email.com,Belo Horizonte,RS,2024-08-24 00:00:00
+474,Cliente 0474,cliente0474@email.com,Porto Alegre,ES,2024-08-24 12:00:00
+475,Cliente 0475,cliente0475@email.com,São Paulo,PE,2024-08-25 00:00:00
+476,Cliente 0476,cliente0476@email.com,Goiânia,RJ,2024-08-25 12:00:00
+477,Cliente 0477,cliente0477@email.com,Curitiba,SC,2024-08-26 00:00:00
+478,Cliente 0478,cliente0478@email.com,Recife,ES,2024-08-26 12:00:00
+479,Cliente 0479,cliente0479@email.com,Porto Alegre,ES,2024-08-27 00:00:00
+480,Cliente 0480,cliente0480@email.com,Recife,RS,2024-08-27 12:00:00
+481,Cliente 0481,cliente0481@email.com,Curitiba,SC,2024-08-28 00:00:00
+482,Cliente 0482,cliente0482@email.com,Belo Horizonte,SP,2024-08-28 12:00:00
+483,Cliente 0483,cliente0483@email.com,Porto Alegre,PR,2024-08-29 00:00:00
+484,Cliente 0484,cliente0484@email.com,Recife,SP,2024-08-29 12:00:00
+485,Cliente 0485,cliente0485@email.com,Goiânia,SC,2024-08-30 00:00:00
+486,Cliente 0486,cliente0486@email.com,Rio de Janeiro,SP,2024-08-30 12:00:00
+487,Cliente 0487,cliente0487@email.com,Uberaba,MG,2024-08-31 00:00:00
+488,Cliente 0488,cliente0488@email.com,Rio de Janeiro,PE,2024-08-31 12:00:00
+489,Cliente 0489,cliente0489@email.com,Curitiba,MG,2024-09-01 00:00:00
+490,Cliente 0490,cliente0490@email.com,São Paulo,GO,2024-09-01 12:00:00
+491,Cliente 0491,cliente0491@email.com,Uberaba,SP,2024-09-02 00:00:00
+492,Cliente 0492,cliente0492@email.com,Florianópolis,GO,2024-09-02 12:00:00
+493,Cliente 0493,cliente0493@email.com,Goiânia,RJ,2024-09-03 00:00:00
+494,Cliente 0494,cliente0494@email.com,Florianópolis,BA,2024-09-03 12:00:00
+495,Cliente 0495,cliente0495@email.com,Porto Alegre,RJ,2024-09-04 00:00:00
+496,Cliente 0496,cliente0496@email.com,Uberaba,SC,2024-09-04 12:00:00
+497,Cliente 0497,cliente0497@email.com,Florianópolis,ES,2024-09-05 00:00:00
+498,Cliente 0498,cliente0498@email.com,Florianópolis,PE,2024-09-05 12:00:00
+499,Cliente 0499,cliente0499@email.com,Recife,SP,2024-09-06 00:00:00
+500,Cliente 0500,cliente0500@email.com,Rio de Janeiro,RS,2024-09-06 12:00:00
+501,Cliente 0501,cliente0501@email.com,Recife,BA,2024-09-07 00:00:00
+502,Cliente 0502,cliente0502@email.com,Uberaba,PR,2024-09-07 12:00:00
+503,Cliente 0503,cliente0503@email.com,Uberaba,PR,2024-09-08 00:00:00
+504,Cliente 0504,cliente0504@email.com,Curitiba,PR,2024-09-08 12:00:00
+505,Cliente 0505,cliente0505@email.com,Recife,SP,2024-09-09 00:00:00
+506,Cliente 0506,cliente0506@email.com,Salvador,PR,2024-09-09 12:00:00
+507,Cliente 0507,cliente0507@email.com,Rio de Janeiro,MG,2024-09-10 00:00:00
+508,Cliente 0508,cliente0508@email.com,Uberaba,BA,2024-09-10 12:00:00
+509,Cliente 0509,cliente0509@email.com,Curitiba,MG,2024-09-11 00:00:00
+510,Cliente 0510,cliente0510@email.com,Recife,ES,2024-09-11 12:00:00
+511,Cliente 0511,cliente0511@email.com,Rio de Janeiro,BA,2024-09-12 00:00:00
+512,Cliente 0512,cliente0512@email.com,Recife,MG,2024-09-12 12:00:00
+513,Cliente 0513,cliente0513@email.com,Florianópolis,BA,2024-09-13 00:00:00
+514,Cliente 0514,cliente0514@email.com,Curitiba,ES,2024-09-13 12:00:00
+515,Cliente 0515,cliente0515@email.com,Rio de Janeiro,GO,2024-09-14 00:00:00
+516,Cliente 0516,cliente0516@email.com,Belo Horizonte,SP,2024-09-14 12:00:00
+517,Cliente 0517,cliente0517@email.com,Porto Alegre,SP,2024-09-15 00:00:00
+518,Cliente 0518,cliente0518@email.com,Porto Alegre,PR,2024-09-15 12:00:00
+519,Cliente 0519,cliente0519@email.com,Rio de Janeiro,RJ,2024-09-16 00:00:00
+520,Cliente 0520,cliente0520@email.com,Recife,PR,2024-09-16 12:00:00
+521,Cliente 0521,cliente0521@email.com,Curitiba,SC,2024-09-17 00:00:00
+522,Cliente 0522,cliente0522@email.com,Porto Alegre,MG,2024-09-17 12:00:00
+523,Cliente 0523,cliente0523@email.com,Curitiba,BA,2024-09-18 00:00:00
+524,Cliente 0524,cliente0524@email.com,Porto Alegre,RJ,2024-09-18 12:00:00
+525,Cliente 0525,cliente0525@email.com,Florianópolis,ES,2024-09-19 00:00:00
+526,Cliente 0526,cliente0526@email.com,Recife,SC,2024-09-19 12:00:00
+527,Cliente 0527,cliente0527@email.com,Florianópolis,ES,2024-09-20 00:00:00
+528,Cliente 0528,cliente0528@email.com,Porto Alegre,SP,2024-09-20 12:00:00
+529,Cliente 0529,cliente0529@email.com,Belo Horizonte,SP,2024-09-21 00:00:00
+530,Cliente 0530,cliente0530@email.com,Belo Horizonte,PR,2024-09-21 12:00:00
+531,Cliente 0531,cliente0531@email.com,Florianópolis,MG,2024-09-22 00:00:00
+532,Cliente 0532,cliente0532@email.com,Belo Horizonte,RJ,2024-09-22 12:00:00
+533,Cliente 0533,cliente0533@email.com,Porto Alegre,PE,2024-09-23 00:00:00
+534,Cliente 0534,cliente0534@email.com,Rio de Janeiro,SC,2024-09-23 12:00:00
+535,Cliente 0535,cliente0535@email.com,Florianópolis,SC,2024-09-24 00:00:00
+536,Cliente 0536,cliente0536@email.com,São Paulo,PR,2024-09-24 12:00:00
+537,Cliente 0537,cliente0537@email.com,Recife,SP,2024-09-25 00:00:00
+538,Cliente 0538,cliente0538@email.com,Belo Horizonte,PR,2024-09-25 12:00:00
+539,Cliente 0539,cliente0539@email.com,Belo Horizonte,BA,2024-09-26 00:00:00
+540,Cliente 0540,cliente0540@email.com,Uberaba,RJ,2024-09-26 12:00:00
+541,Cliente 0541,cliente0541@email.com,Salvador,MG,2024-09-27 00:00:00
+542,Cliente 0542,cliente0542@email.com,Florianópolis,GO,2024-09-27 12:00:00
+543,Cliente 0543,cliente0543@email.com,Goiânia,RS,2024-09-28 00:00:00
+544,Cliente 0544,cliente0544@email.com,Belo Horizonte,RS,2024-09-28 12:00:00
+545,Cliente 0545,cliente0545@email.com,Recife,PR,2024-09-29 00:00:00
+546,Cliente 0546,cliente0546@email.com,São Paulo,BA,2024-09-29 12:00:00
+547,Cliente 0547,cliente0547@email.com,Belo Horizonte,RJ,2024-09-30 00:00:00
+548,Cliente 0548,cliente0548@email.com,São Paulo,PE,2024-09-30 12:00:00
+549,Cliente 0549,cliente0549@email.com,Porto Alegre,RS,2024-10-01 00:00:00
+550,Cliente 0550,cliente0550@email.com,Porto Alegre,RJ,2024-10-01 12:00:00
+551,Cliente 0551,cliente0551@email.com,Salvador,MG,2024-10-02 00:00:00
+552,Cliente 0552,cliente0552@email.com,Rio de Janeiro,ES,2024-10-02 12:00:00
+553,Cliente 0553,cliente0553@email.com,Goiânia,BA,2024-10-03 00:00:00
+554,Cliente 0554,cliente0554@email.com,Uberaba,SP,2024-10-03 12:00:00
+555,Cliente 0555,cliente0555@email.com,Salvador,RJ,2024-10-04 00:00:00
+556,Cliente 0556,cliente0556@email.com,Curitiba,MG,2024-10-04 12:00:00
+557,Cliente 0557,cliente0557@email.com,Uberaba,PE,2024-10-05 00:00:00
+558,Cliente 0558,cliente0558@email.com,Florianópolis,GO,2024-10-05 12:00:00
+559,Cliente 0559,cliente0559@email.com,Recife,SP,2024-10-06 00:00:00
+560,Cliente 0560,cliente0560@email.com,Curitiba,GO,2024-10-06 12:00:00
+561,Cliente 0561,cliente0561@email.com,Curitiba,PE,2024-10-07 00:00:00
+562,Cliente 0562,cliente0562@email.com,Salvador,MG,2024-10-07 12:00:00
+563,Cliente 0563,cliente0563@email.com,Rio de Janeiro,RS,2024-10-08 00:00:00
+564,Cliente 0564,cliente0564@email.com,Salvador,GO,2024-10-08 12:00:00
+565,Cliente 0565,cliente0565@email.com,Florianópolis,SP,2024-10-09 00:00:00
+566,Cliente 0566,cliente0566@email.com,Belo Horizonte,PR,2024-10-09 12:00:00
+567,Cliente 0567,cliente0567@email.com,Belo Horizonte,SC,2024-10-10 00:00:00
+568,Cliente 0568,cliente0568@email.com,Rio de Janeiro,RJ,2024-10-10 12:00:00
+569,Cliente 0569,cliente0569@email.com,Florianópolis,RS,2024-10-11 00:00:00
+570,Cliente 0570,cliente0570@email.com,Rio de Janeiro,GO,2024-10-11 12:00:00
+571,Cliente 0571,cliente0571@email.com,São Paulo,ES,2024-10-12 00:00:00
+572,Cliente 0572,cliente0572@email.com,Belo Horizonte,RJ,2024-10-12 12:00:00
+573,Cliente 0573,cliente0573@email.com,Curitiba,PR,2024-10-13 00:00:00
+574,Cliente 0574,cliente0574@email.com,Goiânia,PE,2024-10-13 12:00:00
+575,Cliente 0575,cliente0575@email.com,Recife,SC,2024-10-14 00:00:00
+576,Cliente 0576,cliente0576@email.com,Florianópolis,MG,2024-10-14 12:00:00
+577,Cliente 0577,cliente0577@email.com,Uberaba,PR,2024-10-15 00:00:00
+578,Cliente 0578,cliente0578@email.com,Rio de Janeiro,PR,2024-10-15 12:00:00
+579,Cliente 0579,cliente0579@email.com,Recife,PE,2024-10-16 00:00:00
+580,Cliente 0580,cliente0580@email.com,Uberaba,BA,2024-10-16 12:00:00
+581,Cliente 0581,cliente0581@email.com,Recife,PE,2024-10-17 00:00:00
+582,Cliente 0582,cliente0582@email.com,Goiânia,BA,2024-10-17 12:00:00
+583,Cliente 0583,cliente0583@email.com,Uberaba,BA,2024-10-18 00:00:00
+584,Cliente 0584,cliente0584@email.com,Salvador,RS,2024-10-18 12:00:00
+585,Cliente 0585,cliente0585@email.com,Porto Alegre,RS,2024-10-19 00:00:00
+586,Cliente 0586,cliente0586@email.com,Salvador,SP,2024-10-19 12:00:00
+587,Cliente 0587,cliente0587@email.com,Belo Horizonte,GO,2024-10-20 00:00:00
+588,Cliente 0588,cliente0588@email.com,Porto Alegre,GO,2024-10-20 12:00:00
+589,Cliente 0589,cliente0589@email.com,Salvador,MG,2024-10-21 00:00:00
+590,Cliente 0590,cliente0590@email.com,Porto Alegre,GO,2024-10-21 12:00:00
+591,Cliente 0591,cliente0591@email.com,Porto Alegre,RS,2024-10-22 00:00:00
+592,Cliente 0592,cliente0592@email.com,Curitiba,SP,2024-10-22 12:00:00
+593,Cliente 0593,cliente0593@email.com,Rio de Janeiro,SP,2024-10-23 00:00:00
+594,Cliente 0594,cliente0594@email.com,Rio de Janeiro,BA,2024-10-23 12:00:00
+595,Cliente 0595,cliente0595@email.com,Curitiba,PE,2024-10-24 00:00:00
+596,Cliente 0596,cliente0596@email.com,Recife,MG,2024-10-24 12:00:00
+597,Cliente 0597,cliente0597@email.com,São Paulo,BA,2024-10-25 00:00:00
+598,Cliente 0598,cliente0598@email.com,Recife,PE,2024-10-25 12:00:00
+599,Cliente 0599,cliente0599@email.com,Uberaba,GO,2024-10-26 00:00:00
+600,Cliente 0600,cliente0600@email.com,Uberaba,BA,2024-10-26 12:00:00
+601,Cliente 0601,cliente0601@email.com,Porto Alegre,RJ,2024-10-27 00:00:00
+602,Cliente 0602,cliente0602@email.com,Salvador,GO,2024-10-27 12:00:00
+603,Cliente 0603,cliente0603@email.com,Salvador,PE,2024-10-28 00:00:00
+604,Cliente 0604,cliente0604@email.com,Rio de Janeiro,MG,2024-10-28 12:00:00
+605,Cliente 0605,cliente0605@email.com,Florianópolis,PE,2024-10-29 00:00:00
+606,Cliente 0606,cliente0606@email.com,Recife,BA,2024-10-29 12:00:00
+607,Cliente 0607,cliente0607@email.com,Belo Horizonte,BA,2024-10-30 00:00:00
+608,Cliente 0608,cliente0608@email.com,Goiânia,PR,2024-10-30 12:00:00
+609,Cliente 0609,cliente0609@email.com,Salvador,MG,2024-10-31 00:00:00
+610,Cliente 0610,cliente0610@email.com,Goiânia,ES,2024-10-31 12:00:00
+611,Cliente 0611,cliente0611@email.com,Porto Alegre,GO,2024-11-01 00:00:00
+612,Cliente 0612,cliente0612@email.com,Goiânia,SP,2024-11-01 12:00:00
+613,Cliente 0613,cliente0613@email.com,Belo Horizonte,MG,2024-11-02 00:00:00
+614,Cliente 0614,cliente0614@email.com,Curitiba,SP,2024-11-02 12:00:00
+615,Cliente 0615,cliente0615@email.com,Belo Horizonte,MG,2024-11-03 00:00:00
+616,Cliente 0616,cliente0616@email.com,Goiânia,MG,2024-11-03 12:00:00
+617,Cliente 0617,cliente0617@email.com,Belo Horizonte,PE,2024-11-04 00:00:00
+618,Cliente 0618,cliente0618@email.com,São Paulo,MG,2024-11-04 12:00:00
+619,Cliente 0619,cliente0619@email.com,Porto Alegre,PR,2024-11-05 00:00:00
+620,Cliente 0620,cliente0620@email.com,Recife,ES,2024-11-05 12:00:00
+621,Cliente 0621,cliente0621@email.com,Curitiba,BA,2024-11-06 00:00:00
+622,Cliente 0622,cliente0622@email.com,Salvador,SC,2024-11-06 12:00:00
+623,Cliente 0623,cliente0623@email.com,Uberaba,SP,2024-11-07 00:00:00
+624,Cliente 0624,cliente0624@email.com,Recife,BA,2024-11-07 12:00:00
+625,Cliente 0625,cliente0625@email.com,Uberaba,SC,2024-11-08 00:00:00
+626,Cliente 0626,cliente0626@email.com,Porto Alegre,ES,2024-11-08 12:00:00
+627,Cliente 0627,cliente0627@email.com,Curitiba,ES,2024-11-09 00:00:00
+628,Cliente 0628,cliente0628@email.com,Rio de Janeiro,SP,2024-11-09 12:00:00
+629,Cliente 0629,cliente0629@email.com,Salvador,SP,2024-11-10 00:00:00
+630,Cliente 0630,cliente0630@email.com,São Paulo,ES,2024-11-10 12:00:00
+631,Cliente 0631,cliente0631@email.com,Rio de Janeiro,SC,2024-11-11 00:00:00
+632,Cliente 0632,cliente0632@email.com,Porto Alegre,MG,2024-11-11 12:00:00
+633,Cliente 0633,cliente0633@email.com,Recife,GO,2024-11-12 00:00:00
+634,Cliente 0634,cliente0634@email.com,São Paulo,RJ,2024-11-12 12:00:00
+635,Cliente 0635,cliente0635@email.com,Belo Horizonte,BA,2024-11-13 00:00:00
+636,Cliente 0636,cliente0636@email.com,Goiânia,PE,2024-11-13 12:00:00
+637,Cliente 0637,cliente0637@email.com,São Paulo,BA,2024-11-14 00:00:00
+638,Cliente 0638,cliente0638@email.com,Porto Alegre,PE,2024-11-14 12:00:00
+639,Cliente 0639,cliente0639@email.com,Florianópolis,SC,2024-11-15 00:00:00
+640,Cliente 0640,cliente0640@email.com,Goiânia,PE,2024-11-15 12:00:00
+641,Cliente 0641,cliente0641@email.com,Uberaba,SP,2024-11-16 00:00:00
+642,Cliente 0642,cliente0642@email.com,Salvador,GO,2024-11-16 12:00:00
+643,Cliente 0643,cliente0643@email.com,Uberaba,GO,2024-11-17 00:00:00
+644,Cliente 0644,cliente0644@email.com,São Paulo,SP,2024-11-17 12:00:00
+645,Cliente 0645,cliente0645@email.com,Uberaba,PR,2024-11-18 00:00:00
+646,Cliente 0646,cliente0646@email.com,Porto Alegre,SC,2024-11-18 12:00:00
+647,Cliente 0647,cliente0647@email.com,Belo Horizonte,PR,2024-11-19 00:00:00
+648,Cliente 0648,cliente0648@email.com,Recife,PR,2024-11-19 12:00:00
+649,Cliente 0649,cliente0649@email.com,Salvador,BA,2024-11-20 00:00:00
+650,Cliente 0650,cliente0650@email.com,Uberaba,ES,2024-11-20 12:00:00
+651,Cliente 0651,cliente0651@email.com,Uberaba,BA,2024-11-21 00:00:00
+652,Cliente 0652,cliente0652@email.com,São Paulo,ES,2024-11-21 12:00:00
+653,Cliente 0653,cliente0653@email.com,Recife,RJ,2024-11-22 00:00:00
+654,Cliente 0654,cliente0654@email.com,Rio de Janeiro,PE,2024-11-22 12:00:00
+655,Cliente 0655,cliente0655@email.com,Uberaba,ES,2024-11-23 00:00:00
+656,Cliente 0656,cliente0656@email.com,Porto Alegre,SP,2024-11-23 12:00:00
+657,Cliente 0657,cliente0657@email.com,Florianópolis,BA,2024-11-24 00:00:00
+658,Cliente 0658,cliente0658@email.com,Salvador,SC,2024-11-24 12:00:00
+659,Cliente 0659,cliente0659@email.com,Uberaba,PE,2024-11-25 00:00:00
+660,Cliente 0660,cliente0660@email.com,Porto Alegre,RJ,2024-11-25 12:00:00
+661,Cliente 0661,cliente0661@email.com,Porto Alegre,ES,2024-11-26 00:00:00
+662,Cliente 0662,cliente0662@email.com,Salvador,RJ,2024-11-26 12:00:00
+663,Cliente 0663,cliente0663@email.com,Rio de Janeiro,SC,2024-11-27 00:00:00
+664,Cliente 0664,cliente0664@email.com,Porto Alegre,PR,2024-11-27 12:00:00
+665,Cliente 0665,cliente0665@email.com,Florianópolis,GO,2024-11-28 00:00:00
+666,Cliente 0666,cliente0666@email.com,Porto Alegre,SC,2024-11-28 12:00:00
+667,Cliente 0667,cliente0667@email.com,Porto Alegre,RS,2024-11-29 00:00:00
+668,Cliente 0668,cliente0668@email.com,Porto Alegre,SC,2024-11-29 12:00:00
+669,Cliente 0669,cliente0669@email.com,Belo Horizonte,RJ,2024-11-30 00:00:00
+670,Cliente 0670,cliente0670@email.com,Belo Horizonte,SP,2024-11-30 12:00:00
+671,Cliente 0671,cliente0671@email.com,Rio de Janeiro,BA,2024-12-01 00:00:00
+672,Cliente 0672,cliente0672@email.com,Uberaba,SP,2024-12-01 12:00:00
+673,Cliente 0673,cliente0673@email.com,Porto Alegre,RJ,2024-12-02 00:00:00
+674,Cliente 0674,cliente0674@email.com,Recife,BA,2024-12-02 12:00:00
+675,Cliente 0675,cliente0675@email.com,Uberaba,RS,2024-12-03 00:00:00
+676,Cliente 0676,cliente0676@email.com,Rio de Janeiro,GO,2024-12-03 12:00:00
+677,Cliente 0677,cliente0677@email.com,Curitiba,PE,2024-12-04 00:00:00
+678,Cliente 0678,cliente0678@email.com,Uberaba,RJ,2024-12-04 12:00:00
+679,Cliente 0679,cliente0679@email.com,Uberaba,ES,2024-12-05 00:00:00
+680,Cliente 0680,cliente0680@email.com,Goiânia,RJ,2024-12-05 12:00:00
+681,Cliente 0681,cliente0681@email.com,São Paulo,RJ,2024-12-06 00:00:00
+682,Cliente 0682,cliente0682@email.com,Goiânia,BA,2024-12-06 12:00:00
+683,Cliente 0683,cliente0683@email.com,Florianópolis,MG,2024-12-07 00:00:00
+684,Cliente 0684,cliente0684@email.com,Belo Horizonte,SC,2024-12-07 12:00:00
+685,Cliente 0685,cliente0685@email.com,Belo Horizonte,MG,2024-12-08 00:00:00
+686,Cliente 0686,cliente0686@email.com,São Paulo,RS,2024-12-08 12:00:00
+687,Cliente 0687,cliente0687@email.com,Salvador,ES,2024-12-09 00:00:00
+688,Cliente 0688,cliente0688@email.com,Salvador,GO,2024-12-09 12:00:00
+689,Cliente 0689,cliente0689@email.com,Rio de Janeiro,PR,2024-12-10 00:00:00
+690,Cliente 0690,cliente0690@email.com,São Paulo,RS,2024-12-10 12:00:00
+691,Cliente 0691,cliente0691@email.com,Uberaba,PR,2024-12-11 00:00:00
+692,Cliente 0692,cliente0692@email.com,Salvador,PR,2024-12-11 12:00:00
+693,Cliente 0693,cliente0693@email.com,Porto Alegre,GO,2024-12-12 00:00:00
+694,Cliente 0694,cliente0694@email.com,Recife,SP,2024-12-12 12:00:00
+695,Cliente 0695,cliente0695@email.com,Uberaba,MG,2024-12-13 00:00:00
+696,Cliente 0696,cliente0696@email.com,Florianópolis,RJ,2024-12-13 12:00:00
+697,Cliente 0697,cliente0697@email.com,Porto Alegre,PE,2024-12-14 00:00:00
+698,Cliente 0698,cliente0698@email.com,Porto Alegre,PR,2024-12-14 12:00:00
+699,Cliente 0699,cliente0699@email.com,São Paulo,ES,2024-12-15 00:00:00
+700,Cliente 0700,cliente0700@email.com,Rio de Janeiro,RS,2024-12-15 12:00:00
+701,Cliente 0701,,Florianópolis,SP,2024-12-16 00:00:00
+702,Cliente 0702,cliente0702@email.com,Salvador,PR,2024-12-16 12:00:00
+703,Cliente 0703,cliente0703@email.com,São Paulo,SP,2024-12-17 00:00:00
+704,Cliente 0704,cliente0704@email.com,Salvador,SP,2024-12-17 12:00:00
+705,Cliente 0705,cliente0705@email.com,São Paulo,PR,2024-12-18 00:00:00
+706,Cliente 0706,cliente0706@email.com,São Paulo,BA,2024-12-18 12:00:00
+707,Cliente 0707,cliente0707@email.com,São Paulo,SC,2024-12-19 00:00:00
+708,Cliente 0708,cliente0708@email.com,Rio de Janeiro,ES,2024-12-19 12:00:00
+709,Cliente 0709,cliente0709@email.com,São Paulo,RJ,2024-12-20 00:00:00
+710,Cliente 0710,cliente0710@email.com,Curitiba,RJ,2024-12-20 12:00:00
+711,Cliente 0711,cliente0711@email.com,Recife,ES,2024-12-21 00:00:00
+712,Cliente 0712,cliente0712@email.com,Salvador,BA,2024-12-21 12:00:00
+713,Cliente 0713,cliente0713@email.com,Uberaba,RJ,2024-12-22 00:00:00
+714,Cliente 0714,cliente0714@email.com,Goiânia,SP,2024-12-22 12:00:00
+715,Cliente 0715,cliente0715@email.com,Florianópolis,GO,2024-12-23 00:00:00
+716,Cliente 0716,cliente0716@email.com,Belo Horizonte,RS,2024-12-23 12:00:00
+717,Cliente 0717,cliente0717@email.com,Rio de Janeiro,MG,2024-12-24 00:00:00
+718,Cliente 0718,cliente0718@email.com,Uberaba,RJ,2024-12-24 12:00:00
+719,Cliente 0719,cliente0719@email.com,Porto Alegre,ES,2024-12-25 00:00:00
+720,Cliente 0720,cliente0720@email.com,Curitiba,GO,2024-12-25 12:00:00
+721,Cliente 0721,cliente0721@email.com,Belo Horizonte,PR,2024-12-26 00:00:00
+722,Cliente 0722,cliente0722@email.com,Goiânia,SC,2024-12-26 12:00:00
+723,Cliente 0723,cliente0723@email.com,Uberaba,ES,2024-12-27 00:00:00
+724,Cliente 0724,cliente0724@email.com,Belo Horizonte,SP,2024-12-27 12:00:00
+725,Cliente 0725,cliente0725@email.com,Uberaba,SC,2024-12-28 00:00:00
+726,Cliente 0726,cliente0726@email.com,Curitiba,RS,2024-12-28 12:00:00
+727,Cliente 0727,cliente0727@email.com,Goiânia,RS,2024-12-29 00:00:00
+728,Cliente 0728,cliente0728@email.com,Porto Alegre,BA,2024-12-29 12:00:00
+729,Cliente 0729,cliente0729@email.com,São Paulo,PE,2024-12-30 00:00:00
+730,Cliente 0730,cliente0730@email.com,Salvador,BA,2024-12-30 12:00:00
+731,Cliente 0731,cliente0731@email.com,Porto Alegre,GO,2024-12-31 00:00:00
+732,Cliente 0732,cliente0732@email.com,São Paulo,SC,2024-12-31 12:00:00
+733,Cliente 0733,cliente0733@email.com,Rio de Janeiro,PE,2025-01-01 00:00:00
+734,Cliente 0734,cliente0734@email.com,Recife,PR,2025-01-01 12:00:00
+735,Cliente 0735,cliente0735@email.com,Florianópolis,SP,2025-01-02 00:00:00
+736,Cliente 0736,cliente0736@email.com,Florianópolis,SC,2025-01-02 12:00:00
+737,Cliente 0737,cliente0737@email.com,Salvador,BA,2025-01-03 00:00:00
+738,Cliente 0738,cliente0738@email.com,Goiânia,MG,2025-01-03 12:00:00
+739,Cliente 0739,cliente0739@email.com,Curitiba,PE,2025-01-04 00:00:00
+740,Cliente 0740,cliente0740@email.com,Goiânia,PE,2025-01-04 12:00:00
+741,Cliente 0741,cliente0741@email.com,Curitiba,SP,2025-01-05 00:00:00
+742,Cliente 0742,cliente0742@email.com,Goiânia,RJ,2025-01-05 12:00:00
+743,Cliente 0743,cliente0743@email.com,Recife,RS,2025-01-06 00:00:00
+744,Cliente 0744,cliente0744@email.com,Rio de Janeiro,RS,2025-01-06 12:00:00
+745,Cliente 0745,cliente0745@email.com,Rio de Janeiro,MG,2025-01-07 00:00:00
+746,Cliente 0746,cliente0746@email.com,São Paulo,GO,2025-01-07 12:00:00
+747,Cliente 0747,cliente0747@email.com,Belo Horizonte,GO,2025-01-08 00:00:00
+748,Cliente 0748,cliente0748@email.com,Rio de Janeiro,PR,2025-01-08 12:00:00
+749,Cliente 0749,cliente0749@email.com,Rio de Janeiro,SC,2025-01-09 00:00:00
+750,Cliente 0750,cliente0750@email.com,Porto Alegre,ES,2025-01-09 12:00:00
+751,Cliente 0751,cliente0751@email.com,Porto Alegre,RJ,2025-01-10 00:00:00
+752,Cliente 0752,cliente0752@email.com,São Paulo,BA,2025-01-10 12:00:00
+753,Cliente 0753,cliente0753@email.com,Belo Horizonte,ES,2025-01-11 00:00:00
+754,Cliente 0754,cliente0754@email.com,Salvador,ES,2025-01-11 12:00:00
+755,Cliente 0755,cliente0755@email.com,Porto Alegre,PE,2025-01-12 00:00:00
+756,Cliente 0756,cliente0756@email.com,Salvador,MG,2025-01-12 12:00:00
+757,Cliente 0757,cliente0757@email.com,Uberaba,RS,2025-01-13 00:00:00
+758,Cliente 0758,cliente0758@email.com,Porto Alegre,PR,2025-01-13 12:00:00
+759,Cliente 0759,cliente0759@email.com,Recife,GO,2025-01-14 00:00:00
+760,Cliente 0760,cliente0760@email.com,Belo Horizonte,MG,2025-01-14 12:00:00
+761,Cliente 0761,cliente0761@email.com,São Paulo,PE,2025-01-15 00:00:00
+762,Cliente 0762,cliente0762@email.com,Uberaba,BA,2025-01-15 12:00:00
+763,Cliente 0763,cliente0763@email.com,Belo Horizonte,PR,2025-01-16 00:00:00
+764,Cliente 0764,cliente0764@email.com,Recife,PE,2025-01-16 12:00:00
+765,Cliente 0765,cliente0765@email.com,Belo Horizonte,RS,2025-01-17 00:00:00
+766,Cliente 0766,cliente0766@email.com,Recife,RS,2025-01-17 12:00:00
+767,Cliente 0767,cliente0767@email.com,Recife,RS,2025-01-18 00:00:00
+768,Cliente 0768,cliente0768@email.com,Salvador,MG,2025-01-18 12:00:00
+769,Cliente 0769,cliente0769@email.com,Goiânia,MG,2025-01-19 00:00:00
+770,Cliente 0770,cliente0770@email.com,Uberaba,GO,2025-01-19 12:00:00
+771,Cliente 0771,cliente0771@email.com,Belo Horizonte,GO,2025-01-20 00:00:00
+772,Cliente 0772,cliente0772@email.com,Curitiba,BA,2025-01-20 12:00:00
+773,Cliente 0773,cliente0773@email.com,Uberaba,PR,2025-01-21 00:00:00
+774,Cliente 0774,cliente0774@email.com,Goiânia,SP,2025-01-21 12:00:00
+775,Cliente 0775,cliente0775@email.com,Uberaba,SP,2025-01-22 00:00:00
+776,Cliente 0776,cliente0776@email.com,Rio de Janeiro,PE,2025-01-22 12:00:00
+777,Cliente 0777,cliente0777@email.com,Curitiba,RS,2025-01-23 00:00:00
+778,Cliente 0778,cliente0778@email.com,Goiânia,PR,2025-01-23 12:00:00
+779,Cliente 0779,cliente0779@email.com,Salvador,ES,2025-01-24 00:00:00
+780,Cliente 0780,cliente0780@email.com,Belo Horizonte,MG,2025-01-24 12:00:00
+781,Cliente 0781,cliente0781@email.com,Florianópolis,SC,2025-01-25 00:00:00
+782,Cliente 0782,cliente0782@email.com,Goiânia,RJ,2025-01-25 12:00:00
+783,Cliente 0783,cliente0783@email.com,São Paulo,BA,2025-01-26 00:00:00
+784,Cliente 0784,cliente0784@email.com,Belo Horizonte,RS,2025-01-26 12:00:00
+785,Cliente 0785,cliente0785@email.com,Goiânia,RS,2025-01-27 00:00:00
+786,Cliente 0786,cliente0786@email.com,Rio de Janeiro,RS,2025-01-27 12:00:00
+787,Cliente 0787,cliente0787@email.com,Florianópolis,MG,2025-01-28 00:00:00
+788,Cliente 0788,cliente0788@email.com,Rio de Janeiro,MG,2025-01-28 12:00:00
+789,Cliente 0789,cliente0789@email.com,Florianópolis,RJ,2025-01-29 00:00:00
+790,Cliente 0790,cliente0790@email.com,São Paulo,ES,2025-01-29 12:00:00
+791,Cliente 0791,cliente0791@email.com,Belo Horizonte,PR,2025-01-30 00:00:00
+792,Cliente 0792,cliente0792@email.com,Salvador,RS,2025-01-30 12:00:00
+793,Cliente 0793,cliente0793@email.com,Rio de Janeiro,SP,2025-01-31 00:00:00
+794,Cliente 0794,cliente0794@email.com,Rio de Janeiro,GO,2025-01-31 12:00:00
+795,Cliente 0795,cliente0795@email.com,Recife,SP,2025-02-01 00:00:00
+796,Cliente 0796,cliente0796@email.com,Florianópolis,PE,2025-02-01 12:00:00
+797,Cliente 0797,cliente0797@email.com,Porto Alegre,SP,2025-02-02 00:00:00
+798,Cliente 0798,cliente0798@email.com,Belo Horizonte,PE,2025-02-02 12:00:00
+799,Cliente 0799,cliente0799@email.com,Florianópolis,SC,2025-02-03 00:00:00
+800,Cliente 0800,cliente0800@email.com,Recife,GO,2025-02-03 12:00:00
+801,Cliente 0801,cliente0801@email.com,Uberaba,SP,2025-02-04 00:00:00
+802,Cliente 0802,cliente0802@email.com,Florianópolis,SC,2025-02-04 12:00:00
+803,Cliente 0803,cliente0803@email.com,Salvador,BA,2025-02-05 00:00:00
+804,Cliente 0804,cliente0804@email.com,Belo Horizonte,PR,2025-02-05 12:00:00
+805,Cliente 0805,cliente0805@email.com,Recife,SC,2025-02-06 00:00:00
+806,Cliente 0806,cliente0806@email.com,Uberaba,PR,2025-02-06 12:00:00
+807,Cliente 0807,cliente0807@email.com,Curitiba,SP,2025-02-07 00:00:00
+808,Cliente 0808,cliente0808@email.com,Recife,ES,2025-02-07 12:00:00
+809,Cliente 0809,cliente0809@email.com,Curitiba,SC,2025-02-08 00:00:00
+810,Cliente 0810,cliente0810@email.com,Belo Horizonte,GO,2025-02-08 12:00:00
+811,Cliente 0811,cliente0811@email.com,Rio de Janeiro,SP,2025-02-09 00:00:00
+812,Cliente 0812,cliente0812@email.com,Recife,RS,2025-02-09 12:00:00
+813,Cliente 0813,cliente0813@email.com,São Paulo,MG,2025-02-10 00:00:00
+814,Cliente 0814,cliente0814@email.com,Curitiba,SC,2025-02-10 12:00:00
+815,Cliente 0815,cliente0815@email.com,Salvador,GO,2025-02-11 00:00:00
+816,Cliente 0816,cliente0816@email.com,São Paulo,BA,2025-02-11 12:00:00
+817,Cliente 0817,cliente0817@email.com,Goiânia,RS,2025-02-12 00:00:00
+818,Cliente 0818,cliente0818@email.com,Goiânia,BA,2025-02-12 12:00:00
+819,Cliente 0819,cliente0819@email.com,Uberaba,SP,2025-02-13 00:00:00
+820,Cliente 0820,cliente0820@email.com,Rio de Janeiro,MG,2025-02-13 12:00:00
+821,Cliente 0821,cliente0821@email.com,Belo Horizonte,SC,2025-02-14 00:00:00
+822,Cliente 0822,cliente0822@email.com,Recife,SC,2025-02-14 12:00:00
+823,Cliente 0823,cliente0823@email.com,Porto Alegre,ES,2025-02-15 00:00:00
+824,Cliente 0824,cliente0824@email.com,Salvador,ES,2025-02-15 12:00:00
+825,Cliente 0825,cliente0825@email.com,Curitiba,SP,2025-02-16 00:00:00
+826,Cliente 0826,cliente0826@email.com,Belo Horizonte,SP,2025-02-16 12:00:00
+827,Cliente 0827,cliente0827@email.com,São Paulo,MG,2025-02-17 00:00:00
+828,Cliente 0828,cliente0828@email.com,Goiânia,ES,2025-02-17 12:00:00
+829,Cliente 0829,cliente0829@email.com,Salvador,GO,2025-02-18 00:00:00
+830,Cliente 0830,cliente0830@email.com,Porto Alegre,GO,2025-02-18 12:00:00
+831,Cliente 0831,cliente0831@email.com,Recife,MG,2025-02-19 00:00:00
+832,Cliente 0832,cliente0832@email.com,Uberaba,GO,2025-02-19 12:00:00
+833,Cliente 0833,cliente0833@email.com,Porto Alegre,PE,2025-02-20 00:00:00
+834,Cliente 0834,cliente0834@email.com,Salvador,PR,2025-02-20 12:00:00
+835,Cliente 0835,cliente0835@email.com,Porto Alegre,MG,2025-02-21 00:00:00
+836,Cliente 0836,cliente0836@email.com,Salvador,MG,2025-02-21 12:00:00
+837,Cliente 0837,cliente0837@email.com,Salvador,RJ,2025-02-22 00:00:00
+838,Cliente 0838,cliente0838@email.com,Florianópolis,RS,2025-02-22 12:00:00
+839,Cliente 0839,cliente0839@email.com,Curitiba,RS,2025-02-23 00:00:00
+840,Cliente 0840,cliente0840@email.com,Goiânia,PE,2025-02-23 12:00:00
+841,Cliente 0841,cliente0841@email.com,Florianópolis,ES,2025-02-24 00:00:00
+842,Cliente 0842,cliente0842@email.com,Recife,SP,2025-02-24 12:00:00
+843,Cliente 0843,cliente0843@email.com,Florianópolis,SP,2025-02-25 00:00:00
+844,Cliente 0844,cliente0844@email.com,Rio de Janeiro,BA,2025-02-25 12:00:00
+845,Cliente 0845,cliente0845@email.com,Rio de Janeiro,PE,2025-02-26 00:00:00
+846,Cliente 0846,cliente0846@email.com,Goiânia,MG,2025-02-26 12:00:00
+847,Cliente 0847,cliente0847@email.com,Porto Alegre,PE,2025-02-27 00:00:00
+848,Cliente 0848,cliente0848@email.com,Curitiba,PE,2025-02-27 12:00:00
+849,Cliente 0849,cliente0849@email.com,Goiânia,PE,2025-02-28 00:00:00
+850,Cliente 0850,cliente0850@email.com,Salvador,RS,2025-02-28 12:00:00
+851,Cliente 0851,cliente0851@email.com,São Paulo,PE,2025-03-01 00:00:00
+852,Cliente 0852,cliente0852@email.com,Curitiba,PR,2025-03-01 12:00:00
+853,Cliente 0853,cliente0853@email.com,Curitiba,SP,2025-03-02 00:00:00
+854,Cliente 0854,cliente0854@email.com,Salvador,BA,2025-03-02 12:00:00
+855,Cliente 0855,cliente0855@email.com,Salvador,PR,2025-03-03 00:00:00
+856,Cliente 0856,cliente0856@email.com,Uberaba,BA,2025-03-03 12:00:00
+857,Cliente 0857,cliente0857@email.com,Goiânia,RJ,2025-03-04 00:00:00
+858,Cliente 0858,cliente0858@email.com,Salvador,BA,2025-03-04 12:00:00
+859,Cliente 0859,cliente0859@email.com,Rio de Janeiro,SP,2025-03-05 00:00:00
+860,Cliente 0860,cliente0860@email.com,Recife,SP,2025-03-05 12:00:00
+861,Cliente 0861,cliente0861@email.com,São Paulo,PE,2025-03-06 00:00:00
+862,Cliente 0862,cliente0862@email.com,Goiânia,SC,2025-03-06 12:00:00
+863,Cliente 0863,cliente0863@email.com,Belo Horizonte,RJ,2025-03-07 00:00:00
+864,Cliente 0864,cliente0864@email.com,Rio de Janeiro,MG,2025-03-07 12:00:00
+865,Cliente 0865,cliente0865@email.com,Porto Alegre,GO,2025-03-08 00:00:00
+866,Cliente 0866,cliente0866@email.com,Salvador,BA,2025-03-08 12:00:00
+867,Cliente 0867,cliente0867@email.com,Belo Horizonte,SC,2025-03-09 00:00:00
+868,Cliente 0868,cliente0868@email.com,Salvador,PE,2025-03-09 12:00:00
+869,Cliente 0869,cliente0869@email.com,Curitiba,RS,2025-03-10 00:00:00
+870,Cliente 0870,cliente0870@email.com,Rio de Janeiro,MG,2025-03-10 12:00:00
+871,Cliente 0871,cliente0871@email.com,Curitiba,ES,2025-03-11 00:00:00
+872,Cliente 0872,cliente0872@email.com,Uberaba,SC,2025-03-11 12:00:00
+873,Cliente 0873,cliente0873@email.com,Curitiba,RS,2025-03-12 00:00:00
+874,Cliente 0874,cliente0874@email.com,Uberaba,RJ,2025-03-12 12:00:00
+875,Cliente 0875,cliente0875@email.com,Uberaba,PE,2025-03-13 00:00:00
+876,Cliente 0876,cliente0876@email.com,Belo Horizonte,MG,2025-03-13 12:00:00
+877,Cliente 0877,cliente0877@email.com,Salvador,MG,2025-03-14 00:00:00
+878,Cliente 0878,cliente0878@email.com,Porto Alegre,MG,2025-03-14 12:00:00
+879,Cliente 0879,cliente0879@email.com,Curitiba,RJ,2025-03-15 00:00:00
+880,Cliente 0880,cliente0880@email.com,Rio de Janeiro,BA,2025-03-15 12:00:00
+881,Cliente 0881,cliente0881@email.com,Uberaba,ES,2025-03-16 00:00:00
+882,Cliente 0882,cliente0882@email.com,Salvador,RJ,2025-03-16 12:00:00
+883,Cliente 0883,cliente0883@email.com,São Paulo,GO,2025-03-17 00:00:00
+884,Cliente 0884,cliente0884@email.com,Goiânia,ES,2025-03-17 12:00:00
+885,Cliente 0885,cliente0885@email.com,Belo Horizonte,SP,2025-03-18 00:00:00
+886,Cliente 0886,cliente0886@email.com,Porto Alegre,PE,2025-03-18 12:00:00
+887,Cliente 0887,cliente0887@email.com,Florianópolis,RJ,2025-03-19 00:00:00
+888,Cliente 0888,cliente0888@email.com,Belo Horizonte,RS,2025-03-19 12:00:00
+889,Cliente 0889,cliente0889@email.com,São Paulo,ES,2025-03-20 00:00:00
+890,Cliente 0890,cliente0890@email.com,Goiânia,GO,2025-03-20 12:00:00
+891,Cliente 0891,cliente0891@email.com,São Paulo,SP,2025-03-21 00:00:00
+892,Cliente 0892,cliente0892@email.com,Curitiba,BA,2025-03-21 12:00:00
+893,Cliente 0893,cliente0893@email.com,Uberaba,RS,2025-03-22 00:00:00
+894,Cliente 0894,cliente0894@email.com,Porto Alegre,ES,2025-03-22 12:00:00
+895,Cliente 0895,cliente0895@email.com,Recife,PE,2025-03-23 00:00:00
+896,Cliente 0896,cliente0896@email.com,Uberaba,RS,2025-03-23 12:00:00
+897,Cliente 0897,cliente0897@email.com,Recife,SP,2025-03-24 00:00:00
+898,Cliente 0898,cliente0898@email.com,Goiânia,RS,2025-03-24 12:00:00
+899,Cliente 0899,cliente0899@email.com,Salvador,PR,2025-03-25 00:00:00
+900,Cliente 0900,cliente0900@email.com,Florianópolis,SC,2025-03-25 12:00:00
+901,Cliente 0901,cliente0901@email.com,Rio de Janeiro,BA,2025-03-26 00:00:00
+902,Cliente 0902,cliente0902@email.com,Uberaba,SP,2025-03-26 12:00:00
+903,Cliente 0903,cliente0903@email.com,Porto Alegre,RS,2025-03-27 00:00:00
+904,Cliente 0904,cliente0904@email.com,São Paulo,SC,2025-03-27 12:00:00
+905,Cliente 0905,cliente0905@email.com,Porto Alegre,SC,2025-03-28 00:00:00
+906,Cliente 0906,cliente0906@email.com,Goiânia,RS,2025-03-28 12:00:00
+907,Cliente 0907,cliente0907@email.com,Recife,PE,2025-03-29 00:00:00
+908,Cliente 0908,cliente0908@email.com,São Paulo,PR,2025-03-29 12:00:00
+909,Cliente 0909,cliente0909@email.com,Rio de Janeiro,RJ,2025-03-30 00:00:00
+910,Cliente 0910,cliente0910@email.com,Rio de Janeiro,PR,2025-03-30 12:00:00
+911,Cliente 0911,cliente0911@email.com,Uberaba,RS,2025-03-31 00:00:00
+912,Cliente 0912,cliente0912@email.com,Goiânia,BA,2025-03-31 12:00:00
+913,Cliente 0913,cliente0913@email.com,Salvador,RJ,2025-04-01 00:00:00
+914,Cliente 0914,cliente0914@email.com,Goiânia,SP,2025-04-01 12:00:00
+915,Cliente 0915,cliente0915@email.com,Recife,PR,2025-04-02 00:00:00
+916,Cliente 0916,cliente0916@email.com,Porto Alegre,RS,2025-04-02 12:00:00
+917,Cliente 0917,cliente0917@email.com,Rio de Janeiro,PR,2025-04-03 00:00:00
+918,Cliente 0918,cliente0918@email.com,Porto Alegre,RJ,2025-04-03 12:00:00
+919,Cliente 0919,cliente0919@email.com,Porto Alegre,GO,2025-04-04 00:00:00
+920,Cliente 0920,cliente0920@email.com,Porto Alegre,ES,2025-04-04 12:00:00
+921,Cliente 0921,cliente0921@email.com,Rio de Janeiro,PR,2025-04-05 00:00:00
+922,Cliente 0922,cliente0922@email.com,Belo Horizonte,SP,2025-04-05 12:00:00
+923,Cliente 0923,cliente0923@email.com,Curitiba,SP,2025-04-06 00:00:00
+924,Cliente 0924,cliente0924@email.com,Recife,MG,2025-04-06 12:00:00
+925,Cliente 0925,cliente0925@email.com,Belo Horizonte,PR,2025-04-07 00:00:00
+926,Cliente 0926,cliente0926@email.com,Recife,ES,2025-04-07 12:00:00
+927,Cliente 0927,cliente0927@email.com,São Paulo,PE,2025-04-08 00:00:00
+928,Cliente 0928,cliente0928@email.com,Goiânia,SC,2025-04-08 12:00:00
+929,Cliente 0929,cliente0929@email.com,Goiânia,ES,2025-04-09 00:00:00
+930,Cliente 0930,cliente0930@email.com,Florianópolis,SC,2025-04-09 12:00:00
+931,Cliente 0931,cliente0931@email.com,Goiânia,SC,2025-04-10 00:00:00
+932,Cliente 0932,cliente0932@email.com,Rio de Janeiro,GO,2025-04-10 12:00:00
+933,Cliente 0933,cliente0933@email.com,Salvador,MG,2025-04-11 00:00:00
+934,Cliente 0934,cliente0934@email.com,Uberaba,ES,2025-04-11 12:00:00
+935,Cliente 0935,cliente0935@email.com,Florianópolis,ES,2025-04-12 00:00:00
+936,Cliente 0936,cliente0936@email.com,Uberaba,GO,2025-04-12 12:00:00
+937,Cliente 0937,cliente0937@email.com,Recife,PR,2025-04-13 00:00:00
+938,Cliente 0938,cliente0938@email.com,Uberaba,PR,2025-04-13 12:00:00
+939,Cliente 0939,cliente0939@email.com,Uberaba,PR,2025-04-14 00:00:00
+940,Cliente 0940,cliente0940@email.com,Florianópolis,BA,2025-04-14 12:00:00
+941,Cliente 0941,cliente0941@email.com,São Paulo,SC,2025-04-15 00:00:00
+942,Cliente 0942,cliente0942@email.com,Porto Alegre,BA,2025-04-15 12:00:00
+943,Cliente 0943,cliente0943@email.com,Goiânia,MG,2025-04-16 00:00:00
+944,Cliente 0944,cliente0944@email.com,Goiânia,GO,2025-04-16 12:00:00
+945,Cliente 0945,cliente0945@email.com,Rio de Janeiro,ES,2025-04-17 00:00:00
+946,Cliente 0946,cliente0946@email.com,Florianópolis,SC,2025-04-17 12:00:00
+947,Cliente 0947,cliente0947@email.com,Rio de Janeiro,BA,2025-04-18 00:00:00
+948,Cliente 0948,cliente0948@email.com,Salvador,BA,2025-04-18 12:00:00
+949,Cliente 0949,cliente0949@email.com,Salvador,RS,2025-04-19 00:00:00
+950,Cliente 0950,cliente0950@email.com,Rio de Janeiro,BA,2025-04-19 12:00:00
+951,Cliente 0951,cliente0951@email.com,Florianópolis,PE,2025-04-20 00:00:00
+952,Cliente 0952,cliente0952@email.com,Rio de Janeiro,ES,2025-04-20 12:00:00
+953,Cliente 0953,cliente0953@email.com,Goiânia,PE,2025-04-21 00:00:00
+954,Cliente 0954,cliente0954@email.com,Belo Horizonte,ES,2025-04-21 12:00:00
+955,Cliente 0955,cliente0955@email.com,Curitiba,GO,2025-04-22 00:00:00
+956,Cliente 0956,cliente0956@email.com,Uberaba,ES,2025-04-22 12:00:00
+957,Cliente 0957,cliente0957@email.com,Curitiba,PE,2025-04-23 00:00:00
+958,Cliente 0958,cliente0958@email.com,Florianópolis,ES,2025-04-23 12:00:00
+959,Cliente 0959,cliente0959@email.com,Curitiba,GO,2025-04-24 00:00:00
+960,Cliente 0960,cliente0960@email.com,Salvador,GO,2025-04-24 12:00:00
+961,Cliente 0961,cliente0961@email.com,Recife,MG,2025-04-25 00:00:00
+962,Cliente 0962,cliente0962@email.com,Uberaba,ES,2025-04-25 12:00:00
+963,Cliente 0963,cliente0963@email.com,Porto Alegre,RS,2025-04-26 00:00:00
+964,Cliente 0964,cliente0964@email.com,Florianópolis,PR,2025-04-26 12:00:00
+965,Cliente 0965,cliente0965@email.com,Uberaba,SP,2025-04-27 00:00:00
+966,Cliente 0966,cliente0966@email.com,Curitiba,GO,2025-04-27 12:00:00
+967,Cliente 0967,cliente0967@email.com,Salvador,RJ,2025-04-28 00:00:00
+968,Cliente 0968,cliente0968@email.com,São Paulo,PR,2025-04-28 12:00:00
+969,Cliente 0969,cliente0969@email.com,Belo Horizonte,SC,2025-04-29 00:00:00
+970,Cliente 0970,cliente0970@email.com,Porto Alegre,ES,2025-04-29 12:00:00
+971,Cliente 0971,cliente0971@email.com,Belo Horizonte,PE,2025-04-30 00:00:00
+972,Cliente 0972,cliente0972@email.com,Uberaba,SP,2025-04-30 12:00:00
+973,Cliente 0973,cliente0973@email.com,Salvador,RJ,2025-05-01 00:00:00
+974,Cliente 0974,cliente0974@email.com,Salvador,PR,2025-05-01 12:00:00
+975,Cliente 0975,cliente0975@email.com,Curitiba,ES,2025-05-02 00:00:00
+976,Cliente 0976,cliente0976@email.com,Goiânia,MG,2025-05-02 12:00:00
+977,Cliente 0977,cliente0977@email.com,Curitiba,SC,2025-05-03 00:00:00
+978,Cliente 0978,cliente0978@email.com,Goiânia,SP,2025-05-03 12:00:00
+979,Cliente 0979,cliente0979@email.com,Goiânia,RS,2025-05-04 00:00:00
+980,Cliente 0980,cliente0980@email.com,Porto Alegre,MG,2025-05-04 12:00:00
+981,Cliente 0981,cliente0981@email.com,Curitiba,RJ,2025-05-05 00:00:00
+982,Cliente 0982,cliente0982@email.com,São Paulo,SP,2025-05-05 12:00:00
+983,Cliente 0983,cliente0983@email.com,Rio de Janeiro,MG,2025-05-06 00:00:00
+984,Cliente 0984,cliente0984@email.com,Rio de Janeiro,SC,2025-05-06 12:00:00
+985,Cliente 0985,cliente0985@email.com,Curitiba,RS,2025-05-07 00:00:00
+986,Cliente 0986,cliente0986@email.com,Curitiba,MG,2025-05-07 12:00:00
+987,Cliente 0987,cliente0987@email.com,Belo Horizonte,BA,2025-05-08 00:00:00
+988,Cliente 0988,cliente0988@email.com,Porto Alegre,RS,2025-05-08 12:00:00
+989,Cliente 0989,cliente0989@email.com,Curitiba,RJ,2025-05-09 00:00:00
+990,Cliente 0990,cliente0990@email.com,Belo Horizonte,SC,2025-05-09 12:00:00
+991,Cliente 0991,cliente0991@email.com,Goiânia,ES,2025-05-10 00:00:00
+992,Cliente 0992,cliente0992@email.com,Salvador,PE,2025-05-10 12:00:00
+993,Cliente 0993,cliente0993@email.com,Salvador,PE,2025-05-11 00:00:00
+994,Cliente 0994,cliente0994@email.com,Goiânia,PE,2025-05-11 12:00:00
+995,Cliente 0995,cliente0995@email.com,Florianópolis,SP,2025-05-12 00:00:00
+996,Cliente 0996,cliente0996@email.com,Belo Horizonte,RJ,2025-05-12 12:00:00
+997,Cliente 0997,cliente0997@email.com,Belo Horizonte,SC,2025-05-13 00:00:00
+998,Cliente 0998,cliente0998@email.com,Goiânia,RS,2025-05-13 12:00:00
+999,Cliente 0999,cliente0999@email.com,São Paulo,SP,2025-05-14 00:00:00
+1000,Cliente 1000,cliente1000@email.com,Recife,RJ,2025-05-14 12:00:00
+50,Cliente 0050,cliente0050@email.com,Goiânia,SP,2024-01-25 12:00:00
+400,Cliente 0400,cliente0400@email.com,Goiânia,RJ,2024-07-18 12:00:00
