@@ -1,172 +1,828 @@
-# Ecommerce Data Platform
+# 🛒 Ecommerce Data Platform
 
-![CI](https://github.com/mariellepmiziara/ecommerce-data-platform/actions/workflows/ci.yml/badge.svg)
+![CI](https://github.com/mariellepmiziara/ecommerce-data-platform/actions/workflows/ci.yml/badge.svg?branch=main)
 
-A data engineering (ETL) pipeline for a fictional e-commerce dataset, built with Python (pandas) and SQLite. The project simulates a realistic scenario: messy raw CSV data goes through extraction, transformation/cleaning, loading into a relational database, and post-load validation — including the discovery and documentation of a data quality issue in the source dataset.
+**End-to-end data engineering pipeline for a fictional e-commerce platform, focused on ETL, data quality, relational modeling, orchestration, automated testing and CI.**
 
-## Table of Contents
+Built with **Python, Pandas, SQLite, SQL, Apache Airflow, Docker, Pytest and GitHub Actions**.
 
-- [Pipeline Architecture](#pipeline-architecture)
-- [Folder Structure](#folder-structure)
-- [Data Model](#data-model)
-- [How to Run](#how-to-run)
-- [Pipeline Stages](#pipeline-stages)
-- [Data Quality Findings](#data-quality-findings)
-- [Key Findings (Exploratory Analysis)](#key-findings-exploratory-analysis)
-- [Documented Business Decisions](#documented-business-decisions)
-- [Next Steps](#next-steps)
+---
 
-## Pipeline Architecture
+## 📌 About the Project
 
+This project simulates a real-world data engineering scenario where messy raw e-commerce data is processed through a complete and reproducible ETL pipeline.
+
+The pipeline takes synthetic CSV datasets through:
+
+**Extraction → Transformation → Loading → Validation → Automated Testing**
+
+The project focuses not only on moving data, but also on:
+
+* Data quality assessment
+* Data cleaning and standardization
+* Business-rule validation
+* Referential integrity
+* Database transactions
+* Post-load validation
+* Automated testing
+* Pipeline orchestration
+* Continuous Integration
+* Documentation of data quality issues and engineering decisions
+
+> **Note:** The datasets are synthetic and were created specifically for this portfolio project. They are intentionally designed to contain data quality problems that can be identified and handled by the pipeline.
+
+---
+
+## 🏗️ Architecture
+
+```mermaid
+flowchart LR
+    A[Raw CSV Files] --> B[Extract]
+    B --> C[Transform]
+    C --> D[Load]
+    D --> E[(SQLite Database)]
+    E --> F[Validate]
+    F --> G[Pytest]
+
+    H[Apache Airflow] --> B
+    H --> C
+    H --> D
+    H --> F
+
+    I[GitHub Actions] --> B
+    I --> G
 ```
-CSV (raw) --> extract.py --> transform.py --> load.py --> SQLite (ecommerce.db) --> validate.py
+
+### Pipeline Flow
+
+```text
+Raw CSV
+   │
+   ▼
+Extract
+   │
+   ├── File validation
+   ├── Schema checks
+   ├── Null analysis
+   └── Duplicate detection
+   │
+   ▼
+Transform
+   │
+   ├── Cleaning
+   ├── Standardization
+   ├── Business rules
+   └── Referential integrity
+   │
+   ▼
+Load
+   │
+   ├── SQLite
+   ├── Transactions
+   └── Rollback on failure
+   │
+   ▼
+Validate
+   │
+   ├── Record counts
+   ├── Primary keys
+   ├── Foreign keys
+   └── Critical nulls
+   │
+   ▼
+Automated Tests
+   │
+   ▼
+CI — GitHub Actions
 ```
 
-- **extract.py**: reads raw CSVs, validates shape/types/nulls/duplicates, and reports an initial quality report per dataset.
-- **transform.py**: cleans and standardizes each table (dates, text, categories, invalid values), removes duplicates, and finally applies a referential integrity step between parent tables (orders, products) and child tables (order_items, payments) — preventing orphaned records in the database.
-- **load.py**: loads the cleaned CSVs into the SQLite database (ecommerce.db), one table at a time.
-- **validate.py**: runs post-load checks on the database — record counts, duplicates, referential integrity (foreign keys), and nulls in critical columns. Raises `DataValidationError` if any check fails, so the pipeline (and the Airflow DAG) fails loudly on bad data instead of silently logging warnings.
+---
 
-## Folder Structure
+## 🛠️ Technologies
 
-```
+| Technology                  | Purpose                                |
+| --------------------------- | -------------------------------------- |
+| **Python**                  | ETL and data engineering               |
+| **Pandas**                  | Data extraction and transformation     |
+| **SQL**                     | Data modeling, validation and analysis |
+| **SQLite**                  | Relational database                    |
+| **Apache Airflow**          | Pipeline orchestration                 |
+| **Docker / Docker Compose** | Local Airflow environment              |
+| **Pytest**                  | Automated testing                      |
+| **Git / GitHub**            | Version control                        |
+| **GitHub Actions**          | Continuous Integration                 |
+
+---
+
+## 📂 Project Structure
+
+```text
 ecommerce-data-platform/
+│
 ├── .github/
 │   └── workflows/
-│       └── ci.yml          # GitHub Actions: builds the pipeline and runs pytest on every push
+│       └── ci.yml
+│
 ├── data/
-│   ├── raw/                # Original, untreated CSVs
-│   ├── processed/          # Cleaned CSVs, generated by transform.py
-│   └── database/           # ecommerce.db (SQLite)
+│   ├── raw/
+│   │   ├── customers.csv
+│   │   ├── products.csv
+│   │   ├── orders.csv
+│   │   ├── order_items.csv
+│   │   ├── sellers.csv
+│   │   └── payments.csv
+│   │
+│   ├── processed/
+│   └── database/
+│       └── ecommerce.db
+│
 ├── src/
 │   ├── extract.py
 │   ├── transform.py
 │   ├── load.py
 │   ├── validate.py
-│   └── check_db.py
+│   ├── check_db.py
+│   └── main.py
+│
 ├── tests/
 │   ├── test_extract.py
 │   ├── test_load.py
 │   ├── test_validate.py
 │   ├── test_transform.py
 │   └── test_database.py
+│
 ├── dags/
-│   └── ecommerce_pipeline.py   # Airflow DAG orchestrating the 4 stages
+│   └── ecommerce_pipeline.py
+│
 ├── requirements.txt
 ├── schema.sql
+├── docker-compose.yml
+├── .gitignore
 └── README.md
 ```
 
-## Data Model
+### Main Components
 
-| Table | Primary Key | Relationships |
-|---|---|---|
-| customers | customer_id | — |
-| products | product_id | — |
-| sellers | seller_id | — |
-| orders | order_id | customer_id → customers, seller_id → sellers |
-| order_items | order_item_id | order_id → orders, product_id → products |
-| payments | payment_id | order_id → orders |
+| File                         | Responsibility                          |
+| ---------------------------- | --------------------------------------- |
+| `src/extract.py`             | Reads and profiles raw datasets         |
+| `src/transform.py`           | Cleans, standardizes and validates data |
+| `src/load.py`                | Loads processed data into SQLite        |
+| `src/validate.py`            | Performs post-load data quality checks  |
+| `src/main.py`                | Orchestrates the complete pipeline      |
+| `dags/ecommerce_pipeline.py` | Airflow orchestration                   |
+| `schema.sql`                 | Database schema                         |
+| `tests/`                     | Automated test suite                    |
+| `.github/workflows/ci.yml`   | GitHub Actions CI                       |
 
-## How to Run
+---
 
-```bash
-# 0. Install dependencies
-pip install -r requirements.txt
+## 🗄️ Data Model
 
-# 1. Extract (reads raw CSVs and reports initial quality)
-python src/extract.py
+The project contains six relational tables:
 
-# 2. Transform (cleaning + referential integrity)
-python src/transform.py
+```mermaid
+erDiagram
+    CUSTOMERS ||--o{ ORDERS : places
+    SELLERS ||--o{ ORDERS : handles
+    ORDERS ||--o{ ORDER_ITEMS : contains
+    PRODUCTS ||--o{ ORDER_ITEMS : includes
+    ORDERS ||--o{ PAYMENTS : has
 
-# 3. Load into SQLite
-python src/load.py
+    CUSTOMERS {
+        int customer_id PK
+        string name
+        string email
+    }
 
-# 4. Post-load validation
-python src/validate.py
+    PRODUCTS {
+        int product_id PK
+        string category
+        float price
+        int stock
+    }
 
-# Or run the entire pipeline in one go:
-python main.py
+    SELLERS {
+        int seller_id PK
+        string name
+        string state
+    }
 
-# Run the test suite
-pytest tests/ -v
+    ORDERS {
+        int order_id PK
+        int customer_id FK
+        int seller_id FK
+        date order_date
+        string status
+        float total_amount
+    }
+
+    ORDER_ITEMS {
+        int order_item_id PK
+        int order_id FK
+        int product_id FK
+        int quantity
+        float unit_price
+        float discount
+        float net_amount
+    }
+
+    PAYMENTS {
+        int payment_id PK
+        int order_id FK
+        string payment_method
+    }
 ```
 
-The pipeline is also orchestrated as an Airflow DAG (`dags/ecommerce_pipeline.py`) — see `docker-compose.yml` to run it locally with `docker compose up`.
+---
 
-## Pipeline Stages
+# 🚀 How to Run
 
-### Extract
+## 1. Clone the repository
 
-- CSV reading with `encoding="utf-8"` and error handling (`FileNotFoundError`, `EmptyDataError`, `ParserError`).
-- Quality report per dataset: record count, column count, nulls, duplicates, and data types.
+```bash
+git clone https://github.com/mariellepmiziara/ecommerce-data-platform.git
+cd ecommerce-data-platform
+```
 
-### Transform
+## 2. Create a virtual environment
 
-- Text normalization (strip, lower where applicable).
-- Date parsing and validation (`pd.to_datetime` with `errors="coerce"`).
-- Removal of full-row duplicates and, where applicable, primary-key duplicates.
-- Business rule validation (e.g., price > 0, quantity > 0, discount between 0 and 1) with removal of invalid records.
-- Standardization of inconsistent categories (e.g., spelling variants in category).
-- Post-transformation referential integrity: since orders and products can drop invalid records, order_items and payments are filtered to remove any row referencing an order_id/product_id that did not survive the parent tables' cleaning.
+### Windows PowerShell
 
-### Load
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+```
 
-- Loads each processed table into SQLite via `to_sql(..., if_exists="append")` after recreating the schema from `schema.sql`.
-- Uses a transaction (commit/rollback) to guarantee load atomicity — if any table fails to load, the entire load is rolled back.
+## 3. Install dependencies
 
-### Validate
+```bash
+pip install -r requirements.txt
+```
 
-- Record counts per table (fails if any expected table is empty).
-- Primary key duplicate checks.
-- Referential integrity checks across all related tables.
-- Null checks on critical columns (e.g., `orders.total_amount`, `order_items.quantity`), with `customers.email` explicitly allowed to be null (documented business decision).
-- Raises `DataValidationError`, listing every problem found, if any check fails — this is what makes the Airflow `validate` task (and the CI pipeline) fail on bad data instead of just printing a warning.
+## 4. Run the complete pipeline
 
-## Data Quality Findings
+From the repository root:
 
-During validation, two issues were identified, investigated, and either fixed or documented:
+```bash
+python -m src.main
+```
 
-**1. Referential integrity orphans (fixed)**
+The pipeline executes:
 
-Before the fix, `order_items` and `payments` contained records pointing to `order_id`/`product_id` values that had been removed while cleaning `orders` and `products` (invalid dates, negative values, etc.). This caused referential integrity failures in the database.
+```text
+Extract
+   ↓
+Transform
+   ↓
+Load
+   ↓
+Validate
+```
 
-Fix: added an `enforce_referential_integrity()` function in `transform.py`, which removes any orphaned records from child tables before loading. Result: `order_items` went from 24,997 to 24,734 records, `payments` from 10,000 to 9,997 — all identified orphans were removed.
+A successful execution ends with:
 
-**2. Mismatch between `orders.total_amount` and the sum of `order_items` (documented, not "fixed")**
+```text
+🎉 PIPELINE EXECUTADO COM SUCESSO
+```
 
-A SQL analysis (`vw_order_reconciliation`) showed that 100% of orders have `orders.total_amount` diverging from the sum of `order_items.net_amount` — not an isolated case, but a systematic pattern across the entire dataset.
+---
 
-Going further, aggregate reconciliation shows the scale of the gap: across matched orders, `orders.total_amount` sums to $16.0M, while `order_items.net_amount` sums to $78.9M — item-level revenue runs consistently ~5x higher than order-level revenue.
+## 🧪 Run the Tests
 
-Conclusion: the two fields were generated independently in this synthetic dataset (there is no real causal relationship between them), and the ~5x scale gap is consistent rather than random, reinforcing that this is a generation artifact, not a handful of bad rows. This isn't something to silently "fix" — it's a business decision about which source to trust (see decisions section below).
+Execute the complete test suite:
 
-## Key Findings (Exploratory Analysis)
+```bash
+pytest tests/ -v --tb=short
+```
 
-Exploratory analysis was run against `vw_orders_trusted` and `order_items` (the trusted revenue sources). Overall, the dataset behaves like randomly generated data rather than real purchasing behavior — useful to state explicitly rather than over-interpreting flat patterns as business insights:
+The tests cover:
 
-- **Revenue over time**: essentially flat month-to-month (~$1.3M–$1.6M), no seasonality.
-- **Revenue by category**: Books and Beauty lead ($16.2M and $15.7M), Sports trails ($9.5M) — but the spread is narrow (~1.7x range), and average item value is nearly identical across categories (~$3,120–$3,226), which is atypical for a real store (real catalogs usually show much more price variance by category).
-- **Payment methods**: all four methods (boleto, debit card, pix, credit card) show nearly identical order counts (~2,460–2,540) and nearly identical average order value (~$7,860–$7,910 using the trusted total) — no method stands out.
-- **Order status**: 73.3% completed, 9.62% cancelled, 9.57% pending, 7.5% returned — average order value barely varies by status, so cancellations/returns aren't concentrated on high- or low-value orders.
-- **Sellers**: top seller (Vendedor 13, SC) generated $2.03M across 236 orders; the top-10 spread is tight ($1.68M–$2.03M) — no runaway top performer.
-- **Customer geography**: fairly even spread across Brazilian states (SP leads with 113 customers, tailing to 87) — no single-state concentration.
+* Extraction
+* Transformation
+* Loading
+* Validation
+* Database integrity
 
-## Documented Business Decisions
+---
 
-- **Nulls in `customers.email`**: kept intentionally. Not every customer has an email on file; its absence doesn't invalidate the record. `validate.py` explicitly allows this column to be null without failing the pipeline.
-- **`orders.total_amount` is not trusted**: for any financial analysis, use `order_total_amount_trusted`, computed from the sum of `order_items.net_amount` (view `vw_orders_trusted`). The raw `total_amount` is kept in the database only as a historical reference to the original data, never used in reporting.
+# 🔄 Pipeline Stages
 
-## Next Steps
+## 1. Extract
 
-- [x] Exploratory analysis (monthly revenue, top categories, average order value by payment method)
-- [x] SQL views/queries for business metrics (revenue per customer, top products/sellers, geographic distribution)
-- [x] Pipeline orchestration with Airflow (DAG)
-- [x] Automated tests (pytest) for extract, transform, load and validate
-- [x] CI pipeline (GitHub Actions) building the database and running the full test suite on every push
-- [ ] Move hardcoded credentials in `docker-compose.yml` to a `.env` file
-- [ ] Replace `print` statements with structured `logging` across the pipeline
-- [ ] Data consumption layer: a lightweight dashboard (Streamlit) or scheduled export of the analytical SQL views
-- [ ] Discuss/implement incremental loading as an alternative to the current full-refresh strategy
-- [ ] Failure alerting on the Airflow DAG (`on_failure_callback`)
+`extract.py` reads the raw CSV files and performs an initial quality assessment.
+
+### Checks performed
+
+* File existence
+* CSV parsing
+* Encoding
+* Empty files
+* Number of rows
+* Number of columns
+* Null values
+* Duplicate records
+* Data types
+
+The extraction stage handles errors such as:
+
+```text
+FileNotFoundError
+EmptyDataError
+ParserError
+```
+
+---
+
+## 2. Transform
+
+`transform.py` applies the data cleaning and business rules.
+
+### Cleaning
+
+* Text normalization
+* Whitespace removal
+* Category standardization
+* Date parsing
+* Duplicate removal
+
+### Validation rules
+
+Examples:
+
+```text
+price > 0
+quantity > 0
+0 <= discount <= 1
+```
+
+Invalid records are removed before loading.
+
+### Referential Integrity
+
+Parent tables are cleaned before their dependent tables.
+
+For example:
+
+```text
+orders
+  ├── order_items
+  └── payments
+
+products
+  └── order_items
+```
+
+If an order or product is removed during cleaning, dependent records referencing it are also removed.
+
+This prevents orphan records from reaching the database.
+
+---
+
+## 3. Load
+
+`load.py` loads the processed datasets into SQLite.
+
+The current strategy is **full refresh**.
+
+The database is recreated and the complete cleaned dataset is loaded on each execution.
+
+The load process uses transactions:
+
+```text
+BEGIN
+   ↓
+Load tables
+   ↓
+Validation of load process
+   ↓
+COMMIT
+```
+
+If an error occurs:
+
+```text
+ROLLBACK
+```
+
+This prevents a partially loaded database.
+
+---
+
+## 4. Validate
+
+`validate.py` performs post-load database validation.
+
+Checks include:
+
+* Table record counts
+* Empty tables
+* Primary-key duplicates
+* Foreign-key integrity
+* Critical null values
+* Relationship consistency
+
+If a validation rule fails, the pipeline raises:
+
+```python
+DataValidationError
+```
+
+This causes both the local pipeline and automated CI workflow to fail instead of silently continuing with invalid data.
+
+---
+
+# 🔍 Data Quality
+
+Data quality is treated as a core part of the pipeline.
+
+The project follows:
+
+```text
+Profile
+   ↓
+Clean
+   ↓
+Validate
+   ↓
+Load
+   ↓
+Validate Again
+```
+
+This approach prevents data quality problems from being silently propagated into the database.
+
+---
+
+# ⚠️ Data Quality Findings
+
+During development, two relevant data quality issues were identified.
+
+## 1. Referential Integrity Orphans — Fixed
+
+Before the fix, `order_items` and `payments` contained records referencing orders/products that had been removed during the cleaning process.
+
+A dedicated function was implemented:
+
+```python
+enforce_referential_integrity()
+```
+
+The result was:
+
+```text
+order_items: 24,997 → 24,734
+payments:    10,000 → 9,997
+```
+
+All identified orphan records were removed before loading.
+
+---
+
+## 2. `orders.total_amount` vs. `order_items.net_amount`
+
+A reconciliation analysis showed that:
+
+```text
+orders.total_amount
+```
+
+does not reconcile with:
+
+```text
+SUM(order_items.net_amount)
+```
+
+The discrepancy affects the entire dataset.
+
+Aggregate comparison:
+
+```text
+orders.total_amount      ≈ $16.0M
+order_items.net_amount   ≈ $78.9M
+```
+
+The investigation showed that the fields were independently generated in the synthetic dataset.
+
+Because the discrepancy is systematic, rather than an isolated data-entry error, it was **documented instead of silently corrected**.
+
+This demonstrates an important data engineering principle:
+
+> **A pipeline should identify and document source-data problems instead of hiding them.**
+
+---
+
+# 📊 Exploratory Analysis
+
+Exploratory analysis was performed using the trusted revenue sources.
+
+Because the dataset is synthetic, the results are intentionally not interpreted as real-world business behavior.
+
+### Revenue over time
+
+Monthly revenue is relatively flat:
+
+```text
+≈ $1.3M – $1.6M
+```
+
+No meaningful seasonality was identified.
+
+### Revenue by category
+
+Approximate revenue:
+
+```text
+Books    → $16.2M
+Beauty   → $15.7M
+Sports   → $9.5M
+```
+
+The relatively narrow variation is atypical of a real e-commerce catalog.
+
+### Payment methods
+
+The four payment methods have similar order volumes and average order values.
+
+No payment method presents a significant difference in behavior.
+
+### Order status
+
+```text
+Completed → 73.3%
+Cancelled →  9.62%
+Pending   →  9.57%
+Returned  →  7.5%
+```
+
+Average order value varies little by status.
+
+### Sellers
+
+The top seller generated approximately:
+
+```text
+$2.03M
+```
+
+across 236 orders.
+
+The top sellers have relatively similar performance.
+
+### Customer geography
+
+Customers are relatively evenly distributed across Brazilian states, without strong geographic concentration.
+
+---
+
+# 💼 Documented Business Decisions
+
+## `customers.email` can be NULL
+
+A missing email does not invalidate a customer record.
+
+Therefore:
+
+```text
+customers.email → nullable
+```
+
+This rule is explicitly supported by `validate.py`.
+
+---
+
+## `orders.total_amount` is not trusted
+
+Due to the systematic reconciliation issue, financial analysis uses:
+
+```text
+order_items.net_amount
+```
+
+through the trusted analytical view:
+
+```text
+vw_orders_trusted
+```
+
+The original `orders.total_amount` is preserved as historical source information but is not used as the trusted revenue metric.
+
+---
+
+# 🔁 Load Strategy: Full Refresh vs. Incremental
+
+The current implementation uses **full refresh**.
+
+Every execution recreates the SQLite database and reloads the complete dataset.
+
+### Why?
+
+This is intentional because:
+
+* The dataset is synthetic.
+* The source is static.
+* The dataset is relatively small.
+* There is no continuous production feed.
+* Full refresh is simple.
+* The pipeline is naturally idempotent.
+
+The dataset contains approximately:
+
+```text
+25K order_items
+```
+
+at most, making full refresh appropriate for this project.
+
+### Production alternative
+
+For a production pipeline processing millions or billions of records, incremental loading would be more appropriate.
+
+A possible architecture would use:
+
+1. A watermark such as `order_date` or `updated_at`.
+2. A control table.
+3. Incremental extraction.
+4. Upsert logic.
+5. Transactional watermark updates.
+
+For example:
+
+```sql
+INSERT ... ON CONFLICT DO UPDATE
+```
+
+could be used to update existing records without duplicating them.
+
+Incremental loading is intentionally not implemented because the current synthetic source does not require it.
+
+---
+
+# ☁️ Airflow Orchestration
+
+The project includes an Apache Airflow DAG:
+
+```text
+dags/ecommerce_pipeline.py
+```
+
+The DAG orchestrates:
+
+```text
+Extract
+   ↓
+Transform
+   ↓
+Load
+   ↓
+Validate
+```
+
+The validation stage is designed to fail the DAG when data quality requirements are not met.
+
+The local Airflow environment can be started with:
+
+```bash
+docker compose up
+```
+
+---
+
+# 🔄 Continuous Integration
+
+GitHub Actions automatically validates changes to the project.
+
+The workflow:
+
+```text
+Checkout
+   ↓
+Python 3.12
+   ↓
+Install dependencies
+   ↓
+Run ETL pipeline
+   ↓
+Run pytest
+```
+
+The workflow is triggered on:
+
+* Push to `main`
+* Push to `master`
+* Pull requests targeting `main`
+* Pull requests targeting `master`
+
+The current CI pipeline is **passing**.
+
+![CI](https://github.com/mariellepmiziara/ecommerce-data-platform/actions/workflows/ci.yml/badge.svg?branch=main)
+
+If the pipeline fails, the workflow also attempts to upload the generated SQLite database as an artifact for troubleshooting.
+
+---
+
+# 📈 Current Pipeline Results
+
+The current successful pipeline produces approximately:
+
+| Dataset     | Records |
+| ----------- | ------: |
+| Customers   |   1,000 |
+| Products    |     198 |
+| Sellers     |      50 |
+| Orders      |   9,997 |
+| Order Items |  24,734 |
+| Payments    |   9,996 |
+
+These values represent the cleaned and validated output of the current synthetic dataset.
+
+---
+
+# 🎯 Engineering Practices Demonstrated
+
+This project demonstrates practical application of:
+
+* ETL pipeline architecture
+* Python
+* Pandas
+* SQL
+* Relational data modeling
+* Data cleaning
+* Data profiling
+* Data quality validation
+* Referential integrity
+* Business-rule validation
+* Error handling
+* Transaction management
+* Full-refresh loading
+* Incremental-loading design
+* Automated testing
+* Pytest
+* Apache Airflow
+* Docker
+* Git
+* GitHub
+* GitHub Actions
+* Continuous Integration
+* Reproducible pipelines
+* Technical documentation
+* Data-driven engineering decisions
+
+---
+
+# 🚧 Future Improvements
+
+The core ETL pipeline, validation, automated tests, Airflow orchestration and CI are already implemented.
+
+Possible future improvements:
+
+* [ ] Move Docker/database credentials to `.env`
+* [ ] Expand automated data quality tests
+* [ ] Add Airflow failure notifications
+* [ ] Implement an incremental-loading version
+* [ ] Add more analytical SQL views
+* [ ] Add a BI/dashboard consumption layer
+* [ ] Explore a cloud-based architecture
+* [ ] Add data lineage documentation
+* [ ] Add containerized CI execution
+
+---
+
+# 👩‍💻 Author
+
+**Marielle Miziara**
+
+Data Engineering | Data Analytics | BI
+
+Focused on building reliable data pipelines, transforming raw data into trustworthy information, and applying data engineering practices to real-world problems.
+
+---
+
+## ⭐ Project Purpose
+
+This project was created as a portfolio demonstration of **data engineering fundamentals applied end-to-end**.
+
+The main objective is not simply to make an ETL pipeline run successfully, but to demonstrate how a data engineer should approach:
+
+```text
+Raw Data
+   ↓
+Data Quality
+   ↓
+Transformation
+   ↓
+Data Integrity
+   ↓
+Reliable Storage
+   ↓
+Validation
+   ↓
+Automated Testing
+   ↓
+Orchestration
+   ↓
+Continuous Integration
+```
+
+**Reliable data starts with reliable engineering.**
+
