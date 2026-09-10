@@ -36,4 +36,8 @@ jobs:
         with:
           name: ecommerce-db-on-failure
           path: data/database/ecommerce.db
+<<<<<<< HEAD
           if-no-files-found: ignore
+=======
+          if-no-files-found: ignore
+>>>>>>> 443fbaf (fix: move CI workflow to GitHub Actions directory)
