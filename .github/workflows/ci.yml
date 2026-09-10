@@ -25,7 +25,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Run ETL pipeline (extract -> transform -> load -> validate)
-        run: python main.py
+        run: python -m src.main
 
       - name: Run test suite
         run: pytest tests/ -v --tb=short
