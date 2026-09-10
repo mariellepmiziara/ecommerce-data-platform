@@ -10,6 +10,7 @@ __pycache__/
 data/raw/*.py
 data/processed/*
 data/quality_reports/*
+data/exports/
 
 # IDE
 .vscode/
