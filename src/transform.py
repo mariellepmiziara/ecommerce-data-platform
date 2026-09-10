@@ -1,35 +1,33 @@
+import logging
 from pathlib import Path
 
 import pandas as pd
 
+logger = logging.getLogger(__name__)
 
-# ============================================================
-# CONFIGURAÇÃO
-# ============================================================
+
 
 BASE_DIR = Path(__file__).resolve().parents[1]
 PROCESSED_DIR = BASE_DIR / "data" / "processed"
 
 
-# ============================================================
 # FUNÇÕES AUXILIARES
-# ============================================================
 
 def remove_full_duplicates(
     df: pd.DataFrame,
     dataset_name: str,
 ) -> pd.DataFrame:
-    """Remove registros completamente duplicados."""
-
+    
     before = len(df)
 
     df = df.drop_duplicates().copy()
 
     removed = before - len(df)
 
-    print(
-        f"🧹 {dataset_name}: "
-        f"{removed:,} duplicados removidos."
+    logger.info(
+        "🧹 %s: %s duplicados removidos.",
+        dataset_name,
+        f"{removed:,}",
     )
 
     return df
@@ -40,8 +38,6 @@ def normalize_text(
     columns: list[str],
     lowercase: bool = False,
 ) -> pd.DataFrame:
-    """Normaliza colunas textuais."""
-
     for column in columns:
 
         if column not in df.columns:
@@ -60,8 +56,6 @@ def validate_positive_id(
     column: str,
     dataset_name: str,
 ) -> None:
-    """Valida IDs obrigatórios."""
-
     invalid = (
         df[column].isna()
         | (df[column] <= 0)
@@ -82,22 +76,19 @@ def print_transformation_summary(
     dataset_name: str,
     initial_rows: int,
 ) -> None:
-    """Exibe resumo da transformação."""
-
     final_rows = len(df)
     removed = initial_rows - final_rows
 
-    print(
-        f"📊 {dataset_name}: "
-        f"{initial_rows:,} → "
-        f"{final_rows:,} registros "
-        f"({removed:,} removidos)"
+    logger.info(
+        "📊 %s: %s → %s registros (%s removidos)",
+        dataset_name,
+        f"{initial_rows:,}",
+        f"{final_rows:,}",
+        f"{removed:,}",
     )
 
 
-# ============================================================
 # CUSTOMERS
-# ============================================================
 
 def transform_customers(
     df: pd.DataFrame,
@@ -106,7 +97,7 @@ def transform_customers(
     dataset_name = "customers"
     initial_rows = len(df)
 
-    print(f"\n🔄 Transformando {dataset_name}...")
+    logger.info("🔄 Transformando %s...", dataset_name)
 
     df = remove_full_duplicates(
         df,
@@ -127,9 +118,9 @@ def transform_customers(
     null_emails = int(df["email"].isna().sum())
 
     if null_emails:
-        print(
-            f"ℹ️ {null_emails:,} clientes "
-            f"sem e-mail. Mantidos."
+        logger.info(
+            "ℹ️ %s clientes sem e-mail. Mantidos.",
+            f"{null_emails:,}",
         )
 
     df["created_at"] = pd.to_datetime(
@@ -140,9 +131,9 @@ def transform_customers(
     invalid_dates = int(df["created_at"].isna().sum())
 
     if invalid_dates:
-        print(
-            f"⚠️ {invalid_dates:,} datas inválidas "
-            f"em customers."
+        logger.warning(
+            "⚠️ %s datas inválidas em customers.",
+            f"{invalid_dates:,}",
         )
 
     validate_positive_id(
@@ -164,9 +155,7 @@ def transform_customers(
     return df
 
 
-# ============================================================
 # PRODUCTS
-# ============================================================
 
 def transform_products(
     df: pd.DataFrame,
@@ -175,7 +164,7 @@ def transform_products(
     dataset_name = "products"
     initial_rows = len(df)
 
-    print(f"\n🔄 Transformando {dataset_name}...")
+    logger.info("🔄 Transformando %s...", dataset_name)
 
     df = remove_full_duplicates(
         df,
@@ -187,7 +176,6 @@ def transform_products(
         ["product_name", "category"],
     )
 
-    # Padronização de categorias
     category_map = {
         "eletronicos": "Eletrônicos",
         "Eletronicos": "Eletrônicos",
@@ -198,44 +186,41 @@ def transform_products(
         category_map
     )
 
-    # Price
     invalid_price = (
         df["price"].isna()
         | (df["price"] <= 0)
     )
 
     if invalid_price.any():
-        print(
-            f"⚠️ {int(invalid_price.sum()):,} "
-            f"preços inválidos removidos."
+        logger.warning(
+            "⚠️ %s preços inválidos removidos.",
+            f"{int(invalid_price.sum()):,}",
         )
 
         df = df.loc[~invalid_price].copy()
 
-    # Cost
     invalid_cost = (
         df["cost"].isna()
         | (df["cost"] <= 0)
     )
 
     if invalid_cost.any():
-        print(
-            f"⚠️ {int(invalid_cost.sum()):,} "
-            f"custos inválidos removidos."
+        logger.warning(
+            "⚠️ %s custos inválidos removidos.",
+            f"{int(invalid_cost.sum()):,}",
         )
 
         df = df.loc[~invalid_cost].copy()
 
-    # Stock
     invalid_stock = (
         df["stock"].isna()
         | (df["stock"] < 0)
     )
 
     if invalid_stock.any():
-        print(
-            f"⚠️ {int(invalid_stock.sum()):,} "
-            f"estoques inválidos removidos."
+        logger.warning(
+            "⚠️ %s estoques inválidos removidos.",
+            f"{int(invalid_stock.sum()):,}",
         )
 
         df = df.loc[~invalid_stock].copy()
@@ -262,9 +247,7 @@ def transform_products(
     return df
 
 
-# ============================================================
 # SELLERS
-# ============================================================
 
 def transform_sellers(
     df: pd.DataFrame,
@@ -273,7 +256,7 @@ def transform_sellers(
     dataset_name = "sellers"
     initial_rows = len(df)
 
-    print(f"\n🔄 Transformando {dataset_name}...")
+    logger.info("🔄 Transformando %s...", dataset_name)
 
     df = remove_full_duplicates(
         df,
@@ -294,9 +277,9 @@ def transform_sellers(
         keep="first",
     ).copy()
 
-    print(
-        f"🧹 seller_id duplicados removidos: "
-        f"{before - len(df):,}"
+    logger.info(
+        "🧹 seller_id duplicados removidos: %s",
+        f"{before - len(df):,}",
     )
 
     df = normalize_text(
@@ -317,9 +300,7 @@ def transform_sellers(
     return df
 
 
-# ============================================================
 # ORDERS
-# ============================================================
 
 def transform_orders(
     df: pd.DataFrame,
@@ -328,7 +309,7 @@ def transform_orders(
     dataset_name = "orders"
     initial_rows = len(df)
 
-    print(f"\n🔄 Transformando {dataset_name}...")
+    logger.info("🔄 Transformando %s...", dataset_name)
 
     df = remove_full_duplicates(
         df,
@@ -346,7 +327,6 @@ def transform_orders(
             dataset_name,
         )
 
-    # Datas
     df["order_date"] = pd.to_datetime(
         df["order_date"],
         errors="coerce",
@@ -355,30 +335,28 @@ def transform_orders(
     invalid_dates = df["order_date"].isna()
 
     if invalid_dates.any():
-        print(
-            f"⚠️ {int(invalid_dates.sum()):,} "
-            f"pedidos com data inválida removidos."
+        logger.warning(
+            "⚠️ %s pedidos com data inválida removidos.",
+            f"{int(invalid_dates.sum()):,}",
         )
 
         df = df.loc[~invalid_dates].copy()
 
-    # Textos
     df = normalize_text(
         df,
         ["status", "payment_method"],
         lowercase=True,
     )
 
-    # Total
     invalid_amount = (
         df["total_amount"].isna()
         | (df["total_amount"] < 0)
     )
 
     if invalid_amount.any():
-        print(
-            f"⚠️ {int(invalid_amount.sum()):,} "
-            f"totais inválidos removidos."
+        logger.warning(
+            "⚠️ %s totais inválidos removidos.",
+            f"{int(invalid_amount.sum()):,}",
         )
 
         df = df.loc[~invalid_amount].copy()
@@ -399,9 +377,7 @@ def transform_orders(
     return df
 
 
-# ============================================================
 # ORDER ITEMS
-# ============================================================
 
 def transform_order_items(
     df: pd.DataFrame,
@@ -410,7 +386,7 @@ def transform_order_items(
     dataset_name = "order_items"
     initial_rows = len(df)
 
-    print(f"\n🔄 Transformando {dataset_name}...")
+    logger.info("🔄 Transformando %s...", dataset_name)
 
     df = remove_full_duplicates(
         df,
@@ -428,19 +404,16 @@ def transform_order_items(
             dataset_name,
         )
 
-    # Quantity
     invalid_quantity = (
         df["quantity"].isna()
         | (df["quantity"] <= 0)
     )
 
-    # Unit price
     invalid_price = (
         df["unit_price"].isna()
         | (df["unit_price"] <= 0)
     )
 
-    # Discount
     invalid_discount = (
         df["discount"].isna()
         | (df["discount"] < 0)
@@ -454,14 +427,13 @@ def transform_order_items(
     )
 
     if invalid.any():
-        print(
-            f"⚠️ {int(invalid.sum()):,} "
-            f"order_items inválidos removidos."
+        logger.warning(
+            "⚠️ %s order_items inválidos removidos.",
+            f"{int(invalid.sum()):,}",
         )
 
         df = df.loc[~invalid].copy()
 
-    # Tipos
     df["order_item_id"] = df[
         "order_item_id"
     ].astype(int)
@@ -486,9 +458,7 @@ def transform_order_items(
         "discount"
     ].astype(float)
 
-    # ========================================================
     # MÉTRICAS DERIVADAS
-    # ========================================================
 
     df["gross_amount"] = (
         df["quantity"]
@@ -505,19 +475,11 @@ def transform_order_items(
         - df["discount_amount"]
     )
 
-    print(
-        f"💰 Gross amount: "
-        f"{df['gross_amount'].sum():,.2f}"
-    )
-
-    print(
-        f"💸 Discount amount: "
-        f"{df['discount_amount'].sum():,.2f}"
-    )
-
-    print(
-        f"💵 Net amount: "
-        f"{df['net_amount'].sum():,.2f}"
+    logger.info(
+        "💰 Gross amount: %.2f | 💸 Discount amount: %.2f | 💵 Net amount: %.2f",
+        df["gross_amount"].sum(),
+        df["discount_amount"].sum(),
+        df["net_amount"].sum(),
     )
 
     df = df.sort_values(
@@ -533,9 +495,7 @@ def transform_order_items(
     return df
 
 
-# ============================================================
 # PAYMENTS
-# ============================================================
 
 def transform_payments(
     df: pd.DataFrame,
@@ -544,7 +504,7 @@ def transform_payments(
     dataset_name = "payments"
     initial_rows = len(df)
 
-    print(f"\n🔄 Transformando {dataset_name}...")
+    logger.info("🔄 Transformando %s...", dataset_name)
 
     df = remove_full_duplicates(
         df,
@@ -579,9 +539,9 @@ def transform_payments(
     )
 
     if invalid.any():
-        print(
-            f"⚠️ {int(invalid.sum()):,} "
-            f"payments inválidos removidos."
+        logger.warning(
+            "⚠️ %s payments inválidos removidos.",
+            f"{int(invalid.sum()):,}",
         )
 
         df = df.loc[~invalid].copy()
@@ -622,9 +582,7 @@ def transform_payments(
     return df
 
 
-# ============================================================
 # REFERENTIAL INTEGRITY
-# ============================================================
 
 def enforce_referential_integrity(
     orders: pd.DataFrame,
@@ -633,7 +591,7 @@ def enforce_referential_integrity(
     payments: pd.DataFrame,
 ) -> tuple[pd.DataFrame, pd.DataFrame]:
 
-    print("\n🔗 Verificando integridade referencial...")
+    logger.info("🔗 Verificando integridade referencial...")
 
     valid_order_ids = set(
         orders["order_id"]
@@ -642,10 +600,6 @@ def enforce_referential_integrity(
     valid_product_ids = set(
         products["product_id"]
     )
-
-    # --------------------------------------------------------
-    # ORDER ITEMS
-    # --------------------------------------------------------
 
     before_items = len(order_items)
 
@@ -663,14 +617,13 @@ def enforce_referential_integrity(
         before_items - len(order_items)
     )
 
-    print(
-        f"🧹 order_items removidos por "
-        f"FK inválida: {removed_items:,}"
-    )
+    log_level = logging.WARNING if removed_items else logging.INFO
 
-    # --------------------------------------------------------
-    # PAYMENTS
-    # --------------------------------------------------------
+    logger.log(
+        log_level,
+        "🧹 order_items removidos por FK inválida: %s",
+        f"{removed_items:,}",
+    )
 
     before_payments = len(payments)
 
@@ -684,25 +637,22 @@ def enforce_referential_integrity(
         before_payments - len(payments)
     )
 
-    print(
-        f"🧹 payments removidos por "
-        f"FK inválida: {removed_payments:,}"
+    log_level = logging.WARNING if removed_payments else logging.INFO
+
+    logger.log(
+        log_level,
+        "🧹 payments removidos por FK inválida: %s",
+        f"{removed_payments:,}",
     )
 
     return order_items, payments
 
 
-# ============================================================
-# TRANSFORMAÇÃO COMPLETA
-# ============================================================
-
 def transform_data(
     data: dict[str, pd.DataFrame],
 ) -> dict[str, pd.DataFrame]:
 
-    print("\n" + "=" * 60)
-    print("🔄 ETAPA TRANSFORM")
-    print("=" * 60)
+    logger.info("🔄 ETAPA TRANSFORM — iniciando")
 
     customers = transform_customers(
         data["customers"]
@@ -746,16 +696,10 @@ def transform_data(
         "payments": payments,
     }
 
-    print("\n" + "=" * 60)
-    print("✅ TRANSFORMAÇÃO CONCLUÍDA")
-    print("=" * 60)
+    logger.info("✅ TRANSFORMAÇÃO CONCLUÍDA")
 
     return transformed_data
 
-
-# ============================================================
-# SALVAR PROCESSADOS
-# ============================================================
 
 def save_processed_data(
     data: dict[str, pd.DataFrame],
@@ -766,7 +710,7 @@ def save_processed_data(
         exist_ok=True,
     )
 
-    print("\n💾 Salvando dados processados...")
+    logger.info("💾 Salvando dados processados...")
 
     for dataset_name, df in data.items():
 
@@ -781,12 +725,20 @@ def save_processed_data(
             encoding="utf-8",
         )
 
-        print(
-            f"✅ {output_path.name}: "
-            f"{len(df):,} registros"
+        logger.info(
+            "✅ %s: %s registros",
+            output_path.name,
+            f"{len(df):,}",
         )
 
+
 if __name__ == "__main__":
+
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s | %(levelname)-8s | %(name)s | %(message)s",
+        datefmt="%Y-%m-%d %H:%M:%S",
+    )
 
     from extract import extract_data
 

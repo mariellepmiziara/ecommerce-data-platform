@@ -1,8 +1,9 @@
+import logging
 from pathlib import Path
 import pandas as pd
 
+logger = logging.getLogger(__name__)
 
-# CONFIGURAÇÃO
 
 BASE_DIR = Path(__file__).resolve().parents[1]
 RAW_DIR = BASE_DIR / "data" / "raw"
@@ -66,9 +67,6 @@ def validate_schema(
     df: pd.DataFrame,
     dataset_name: str,
 ) -> None:
-    """
-    Verifica se o dataset contém todas as colunas obrigatórias.
-    """
 
     required_columns = REQUIRED_COLUMNS[dataset_name]
 
@@ -85,7 +83,6 @@ def validate_schema(
         )
 
 
-# RELATÓRIO DE QUALIDADE
 
 def validate_extracted_data(
     df: pd.DataFrame,
@@ -108,18 +105,18 @@ def validate_extracted_data(
     else:
         completeness = 0.0
 
-    print("\n" + "-" * 60)
-    print(f"📊 DATASET: {dataset_name}")
-    print("-" * 60)
+    logger.info(
+        "📊 DATASET %s | registros=%s colunas=%s nulos=%s "
+        "duplicados=%s completude_media=%.2f%%",
+        dataset_name,
+        f"{total_records:,}",
+        total_columns,
+        f"{null_records:,}",
+        f"{duplicated_records:,}",
+        completeness,
+    )
 
-    print(f"Registros       : {total_records:,}")
-    print(f"Colunas         : {total_columns}")
-    print(f"Nulos           : {null_records:,}")
-    print(f"Duplicados      : {duplicated_records:,}")
-    print(f"Completude média: {completeness:.2f}%")
-
-    print("\nTipos de dados:")
-    print(df.dtypes)
+    logger.debug("Tipos de dados de %s:\n%s", dataset_name, df.dtypes)
 
     return {
         "dataset": dataset_name,
@@ -131,7 +128,6 @@ def validate_extracted_data(
     }
 
 
-# LEITURA DOS CSVs
 
 def read_csv(filename: str, dataset_name: str) -> pd.DataFrame:
     """
@@ -158,7 +154,7 @@ def read_csv(filename: str, dataset_name: str) -> pd.DataFrame:
 
         validate_schema(df, dataset_name)
 
-        print(f"✅ Extração realizada: {filename}")
+        logger.info("✅ Extração realizada: %s", filename)
 
         validate_extracted_data(
             df,
@@ -168,25 +164,22 @@ def read_csv(filename: str, dataset_name: str) -> pd.DataFrame:
         return df
 
     except FileNotFoundError:
-        print(f"❌ Arquivo não encontrado: {file_path}")
+        logger.error("❌ Arquivo não encontrado: %s", file_path)
         raise
 
     except pd.errors.EmptyDataError:
-        print(f"❌ Arquivo vazio: {filename}")
+        logger.error("❌ Arquivo vazio: %s", filename)
         raise
 
     except pd.errors.ParserError:
-        print(f"❌ Erro ao interpretar CSV: {filename}")
+        logger.error("❌ Erro ao interpretar CSV: %s", filename)
         raise
 
     except Exception as error:
-        print(
-            f"❌ Erro ao ler '{filename}': {error}"
-        )
+        logger.error("❌ Erro ao ler '%s': %s", filename, error)
         raise
 
 
-# EXTRAÇÃO DOS DATASETS
 
 def extract_data() -> dict[str, pd.DataFrame]:
     """
@@ -204,9 +197,7 @@ def extract_data() -> dict[str, pd.DataFrame]:
 
     extracted_data = {}
 
-    print("\n" + "=" * 60)
-    print("📥 ETAPA EXTRACT")
-    print("=" * 60)
+    logger.info("📥 ETAPA EXTRACT — iniciando")
 
     for dataset_name, filename in files.items():
 
@@ -215,25 +206,29 @@ def extract_data() -> dict[str, pd.DataFrame]:
             dataset_name,
         )
 
-    print("\n" + "=" * 60)
-    print("✅ EXTRAÇÃO CONCLUÍDA")
-    print("=" * 60)
+    logger.info("✅ EXTRAÇÃO CONCLUÍDA")
 
     return extracted_data
 
 
-# EXECUÇÃO DIRETA
 
 if __name__ == "__main__":
 
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s | %(levelname)-8s | %(name)s | %(message)s",
+        datefmt="%Y-%m-%d %H:%M:%S",
+    )
+
     data = extract_data()
 
-    print("\n📦 Datasets extraídos:")
+    logger.info("📦 Datasets extraídos:")
 
     for name, df in data.items():
 
-        print(
-            f" - {name}: "
-            f"{df.shape[0]:,} registros × "
-            f"{df.shape[1]} colunas"
+        logger.info(
+            " - %s: %s registros × %s colunas",
+            name,
+            f"{df.shape[0]:,}",
+            df.shape[1],
         )

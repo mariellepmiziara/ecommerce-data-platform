@@ -1,5 +1,8 @@
+import logging
 import sqlite3
 from pathlib import Path
+
+logger = logging.getLogger(__name__)
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -11,11 +14,11 @@ class DataValidationError(Exception):
 
 
 def validate_database():
-    print("🔎 VALIDAÇÃO DO BANCO DE DADOS")
-    print("=" * 60)
+    logger.info("🔎 VALIDAÇÃO DO BANCO DE DADOS")
 
     connection = sqlite3.connect(DATABASE_PATH)
 
+    # Acumula mensagens de erro; ao final, se houver alguma, a função falha.
     errors: list[str] = []
 
     try:
@@ -31,10 +34,7 @@ def validate_database():
         tables = cursor.fetchall()
         found_table_names = {table[0] for table in tables}
 
-        print("\n📋 Tabelas encontradas:")
-
-        for table in tables:
-            print(f"   ✅ {table[0]}")
+        logger.info("📋 Tabelas encontradas: %s", sorted(found_table_names))
 
         expected_tables = {
             "customers",
@@ -52,8 +52,7 @@ def validate_database():
                 f"Tabelas ausentes no banco: {sorted(missing_tables)}"
             )
 
-        print("\n📊 CONTAGEM DE REGISTROS")
-        print("-" * 60)
+        logger.info("📊 CONTAGEM DE REGISTROS")
 
         table_names = [
             "customers",
@@ -67,6 +66,7 @@ def validate_database():
         for table in table_names:
 
             if table not in found_table_names:
+                # Já reportado acima como tabela ausente; evita erro no COUNT(*).
                 continue
 
             cursor.execute(
@@ -75,20 +75,22 @@ def validate_database():
 
             count = cursor.fetchone()[0]
 
-            print(f"{table:<15} {count:>10,}")
+            logger.info("%-15s %10s", table, f"{count:,}")
 
             if count == 0:
                 errors.append(f"{table}: tabela carregada com 0 registros")
 
-
+        # As checagens abaixo (duplicidades, integridade referencial, nulos)
+        # fazem SELECTs diretos nas tabelas esperadas. Se alguma tabela
+        # estiver ausente, pular essas seções evita um OperationalError
+        # não tratado — o problema já foi registrado em `errors` acima.
         if missing_tables:
 
-            print("\n⏭️  Demais checagens puladas: tabelas ausentes.")
+            logger.warning("⏭️  Demais checagens puladas: tabelas ausentes.")
 
         else:
 
-            print("\n🔍 DUPLICIDADES")
-            print("-" * 60)
+            logger.info("🔍 DUPLICIDADES")
 
             validations = [
 
@@ -146,15 +148,14 @@ def validate_database():
                 duplicates = cursor.fetchone()[0]
 
                 if duplicates == 0:
-                    print(f"✅ {name}: sem duplicidades")
+                    logger.info("✅ %s: sem duplicidades", name)
                 else:
-                    print(f"❌ {name}: {duplicates} duplicidades")
+                    logger.warning("❌ %s: %s duplicidades", name, duplicates)
                     errors.append(
                         f"{name}: {duplicates} registros com PK duplicada"
                     )
 
-            print("\n🔗 INTEGRIDADE REFERENCIAL")
-            print("-" * 60)
+            logger.info("🔗 INTEGRIDADE REFERENCIAL")
 
             referential_checks = [
 
@@ -219,16 +220,19 @@ def validate_database():
                 invalid = cursor.fetchone()[0]
 
                 if invalid == 0:
-                    print(f"✅ {name}")
+                    logger.info("✅ %s", name)
                 else:
-                    print(f"❌ {name}: {invalid} registros inválidos")
+                    logger.warning(
+                        "❌ %s: %s registros inválidos", name, invalid
+                    )
                     errors.append(
                         f"{name}: {invalid} registros órfãos (FK inválida)"
                     )
 
-            print("\n🕳️ VALORES NULOS")
-            print("-" * 60)
+            logger.info("🕳️ VALORES NULOS")
 
+            # Colunas onde nulo é uma condição documentada e aceitável
+            # (ver README: "Documented Business Decisions").
             allowed_nulls = {"customers.email"}
 
             null_checks = {
@@ -263,9 +267,9 @@ def validate_database():
                 nulls = cursor.fetchone()[0]
 
                 if nulls == 0:
-                    print(f"✅ {name}: sem nulos")
+                    logger.info("✅ %s: sem nulos", name)
                 else:
-                    print(f"⚠️ {name}: {nulls} nulos")
+                    logger.warning("⚠️ %s: %s nulos", name, nulls)
 
                     if name not in allowed_nulls:
                         errors.append(
@@ -273,26 +277,32 @@ def validate_database():
                             "(não documentado como aceitável)"
                         )
 
-        print("\n" + "=" * 60)
-
         if errors:
-            print("❌ VALIDAÇÃO FALHOU")
-            print("=" * 60)
+            logger.error("❌ VALIDAÇÃO FALHOU")
 
             for error in errors:
-                print(f"   - {error}")
+                logger.error("   - %s", error)
 
             raise DataValidationError(
                 f"{len(errors)} problema(s) de qualidade de dados "
                 f"encontrado(s):\n" + "\n".join(f"- {e}" for e in errors)
             )
 
-        print("🎉 VALIDAÇÃO CONCLUÍDA!")
-        print("=" * 60)
+        logger.info("🎉 VALIDAÇÃO CONCLUÍDA!")
 
     finally:
         connection.close()
 
 
 if __name__ == "__main__":
+
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s | %(levelname)-8s | %(name)s | %(message)s",
+        datefmt="%Y-%m-%d %H:%M:%S",
+    )
+
     validate_database()
+
+    # 3 registros de customers sem e-mail — mantidos intencionalmente
+    # o email foi normalizado, porém não descartou clientes sem email cadastrado

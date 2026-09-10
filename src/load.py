@@ -1,10 +1,11 @@
+import logging
 import sqlite3
 from pathlib import Path
 
 import pandas as pd
 
+logger = logging.getLogger(__name__)
 
-# CONFIGURAÇÃO DE CAMINHOS
 
 BASE_DIR = Path(__file__).resolve().parents[1]
 
@@ -13,8 +14,6 @@ DATABASE_DIR = BASE_DIR / "data" / "database"
 DATABASE_PATH = DATABASE_DIR / "ecommerce.db"
 SCHEMA_PATH = BASE_DIR / "schema.sql"
 
-
-# CONEXÃO COM O BANCO
 
 def create_connection():
     DATABASE_DIR.mkdir(parents=True, exist_ok=True)
@@ -26,7 +25,6 @@ def create_connection():
     return connection
 
 
-# CRIAÇÃO DO SCHEMA
 
 def create_schema(connection):
     if not SCHEMA_PATH.exists():
@@ -39,17 +37,16 @@ def create_schema(connection):
 
     connection.executescript(schema)
 
-    print(f"Schema criado com sucesso: {SCHEMA_PATH}")
+    logger.info("Schema criado com sucesso: %s", SCHEMA_PATH)
 
 
-# CARGA DE UMA TABELA
 
 def load_table(connection, table_name, df):
 
     if df.empty:
-        print(
-            f"{table_name}: DataFrame vazio. "
-            "Nada para carregar."
+        logger.warning(
+            "%s: DataFrame vazio. Nada para carregar.",
+            table_name,
         )
         return
 
@@ -60,30 +57,26 @@ def load_table(connection, table_name, df):
         index=False
     )
 
-    print(
-        f"{table_name}: "
-        f"{len(df):,} registros carregados."
+    logger.info(
+        "%s: %s registros carregados.",
+        table_name,
+        f"{len(df):,}",
     )
 
-
-# CARGA COMPLETA DO BANCO
 
 def load_data():
 
     if DATABASE_PATH.exists():
         DATABASE_PATH.unlink()
-        print("Banco anterior removido.")
+        logger.info("Banco anterior removido.")
 
     connection = create_connection()
 
     try:
 
-        print("\n" + "-" * 70)
-        print("INICIANDO CARGA DO BANCO")
-        print("-" * 70)
-
-        print(f"Banco: {DATABASE_PATH}")
-        print(f"Schema: {SCHEMA_PATH}")
+        logger.info("INICIANDO CARGA DO BANCO")
+        logger.info("Banco: %s", DATABASE_PATH)
+        logger.info("Schema: %s", SCHEMA_PATH)
 
         create_schema(connection)
 
@@ -149,14 +142,13 @@ def load_data():
 
         connection.commit()
 
-        print("\nCarga concluída com sucesso.")
+        logger.info("Carga concluída com sucesso.")
 
-    except Exception as error:
+    except Exception:
 
         connection.rollback()
 
-        print("\nErro durante a carga.")
-        print(f"Erro: {error}")
+        logger.exception("Erro durante a carga. Transação revertida.")
 
         raise
 
@@ -165,9 +157,14 @@ def load_data():
         connection.close()
 
 
-# EXECUÇÃO DIRETA
 
 if __name__ == "__main__":
+
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s | %(levelname)-8s | %(name)s | %(message)s",
+        datefmt="%Y-%m-%d %H:%M:%S",
+    )
 
     from extract import extract_data
 
